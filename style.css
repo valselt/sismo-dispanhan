@@ -32,8 +32,9 @@
   --padding-notop:0px 15px;
   --padding-noside:15px 0px;
 
-  --margin-default:0px 5rem;
-  --margin-footer: 15rem 0px 0px 0px;
+  --margin-default:0rem 5rem;
+  --margin-body-except-index:10rem 5rem 0rem 5rem;
+  --margin-footer: 15rem 0rem 0rem 0rem;
 
   --bg-hero: url('https://i.postimg.cc/qqw223wQ/bocil.jpg');
 
@@ -107,6 +108,7 @@ body {
 .text-shadow{
   text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
+
 /* NAVBAR */
 
 #navbar {
@@ -132,6 +134,34 @@ body {
 
 }
 
+
+/* FOOTER */
+
+.container-footer{
+  background-color: #333333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+  margin:var(--margin-footer);
+
+  height: 10rem;
+}
+
+.img-footer{
+  display: flex;
+  align-items: center;
+  height:60%;
+}
+
+
+
+
+/* -----------------------------------------------------index.html----------------------------------------------------- */
+
+/* NAVBAR */
 .container-navbar{
   background-color: rgba(232, 244, 234, 0.1);
   backdrop-filter: blur(10px) saturate(180%);
@@ -145,7 +175,6 @@ body {
 
 
   border-radius: 20px;
-  /* border-bottom: 1px solid #ccc; */
 
   transition: var(--transition);
 }
@@ -583,26 +612,79 @@ select.dropdown-2-2-2:focus option:first-child {
   border-radius: var(--border-radius-step-1);
 }
 
-/* FOOTER */
 
-.container-footer{
-  background-color: #333333;
+/* -----------------------------------------------------about.html----------------------------------------------------- */
+
+.container-navbar-aboutme{
+  background-color: rgba(54, 54, 54, 0.5);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari support */
+
+  height: inherit;
+
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px;
-  margin:var(--margin-footer);
-
-  height: 10rem;
+  border-radius: 20px;
 }
 
-.img-footer{
-  display: flex;
-  align-items: center;
-  height:60%;
+.container-aboutme{
+    background-color: #c40000;
+    font-family: IBM Plex Sans, sans-serif;
+ 
+    margin: var(--margin-body-except-index);
+    gap: var(--gap-children);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: stretch;
+    
 }
+
+.collage-aboutme{
+    background-color: #0d47a1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    grid-template-rows: repeat(3, auto);   /* 3 baris */
+    flex-grow: 3;
+    gap: var(--gap-children-step-3);
+    padding: 0;
+    list-style: none;
+
+    width: 100%;
+    height: 100%;
+
+    margin: auto;
+    
+}
+.img-aboutme{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: var(--transition);
+
+    
+}
+
+.img-aboutme:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.text-aboutme{
+  background-color: #0d47a1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    flex-grow: 2;
+    
+    
+}
+
+
 
 /* AGAR RESPONSIVE DI LAYAR KECIL */
 
@@ -612,7 +694,7 @@ select.dropdown-2-2-2:focus option:first-child {
     --gap-container: 7rem; 
   }
 
-  .container-2-2 {
+  .container-2-2, .container-aboutme {
     flex-direction: column;
   }
 
@@ -645,3 +727,4 @@ select.dropdown-2-2-2:focus option:first-child {
   height: 500px;
   border-radius: var(--border-radius-step-1);
 }
+
