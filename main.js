@@ -86,11 +86,13 @@ function styleFeature(feature) {
       cleanValue(d.tahun) === dropdown.tahun
   );
 
-  const total = match ? parseFloat(match.total) : 0;
-  console.log(`Cek ${feature.properties.name}: Total=${total}`);
+  const total = match ? parseFloat(match.total) : 0; // Jika tidak ditemukan, set ke 0
+  const isDataAvailable = match ? true : false; // Menentukan apakah data ada
+
+  console.log(`Cek ${feature.properties.name}: Total=${total}, Data available: ${isDataAvailable}`);
 
   return {
-    fillColor: getColor(dropdown.tipe, total),
+    fillColor: getColor(dropdown.tipe, total, isDataAvailable), // Kirim isDataAvailable ke fungsi getColor
     weight: 1,
     opacity: 1,
     color: "white",
@@ -98,30 +100,36 @@ function styleFeature(feature) {
   };
 }
 
-function getColor(tipe, value) {
+
+function getColor(tipe, value, isDataAvailable) {
+  // Jika data tidak tersedia, warnanya hitam
+  if (!isDataAvailable) return "black";  
+
+  // Jika data ada dan nilai adalah 0, warnanya merah
+  if (value === 0) return "purple";
+
+  // Jika ada data yang valid, tentukan warnanya berdasarkan tipe dan value
   if (tipe === "luastanam") {
-    if (value === 0) return "purple";
-    if (value <= 65.5) return "red";
-    if (value <= 1177.74) return "orange";
-    if (value <= 4146.45) return "green";
+    if (0 <= value && value <= 65.5) return "red";
+    if (65.5 <= value  && value <= 1177.74) return "orange";
+    if (1177.74 <= value  && value <= 4146.45) return "green";
     return "blue";
   }
   if (tipe === "luaspanen") {
-    if (value === 0) return "purple";
-    if (value <= 247.36) return "red";
-    if (value <= 1821.54) return "orange";
-    if (value <= 3000) return "green";
+    if (0 <= value && value <= 247.36) return "orange";
+    if (247.36 <= value && value <= 1821.54) return "green";
+    if (1821.54 <= value && value <= 3000) return "blue";
     return "blue";
   }
   if (tipe === "produksi") {
-    if (value === 0) return "purple";
-    if (value <= 4.48) return "red";
-    if (value <= 145.0) return "orange";
-    if (value <= 1260.0) return "green";
+    if (0 <= value && value <= 4.48) return "orange";
+    if (4.48 <= value && value <= 145.0) return "green";
+    if (145.0 <= value && value <= 1260.0) return "blue";
     return "blue";
   }
-  return "gray";
+  return "gray"; // Warna default jika tipe tidak dikenali
 }
+
 
 function onEachFeature(feature, layer) {
   layer.on({
@@ -182,24 +190,24 @@ function updateIndicators() {
   let ranges = {
     luastanam: {
       "Level 1": "0.0",
-      "Level 2": "0.0 – 65.5",
-      "Level 3": "65.5 – 1177.74",
-      "Level 4": "1177.74 – 4146.45",
-      "Level 5": "4146.45 – 37646.0",
+      "Level 2": "0.0 - 65.5",
+      "Level 3": "65.5 - 1177.74",
+      "Level 4": "1177.74 - 4146.45",
+      "Level 5": "≥ 4146.45",
     },
     luaspanen: {
       "Level 1": "0.0",
-      "Level 2": "0.0 – 247.36",
-      "Level 3": "247.36 – 1821.54",
-      "Level 4": "1821.54 – 3000",
-      "Level 5": "3000",
+      "Level 2": "0.0 - 247.36",
+      "Level 3": "247.36 - 1821.54",
+      "Level 4": "1821.54 - 3000",
+      "Level 5": "≥ 3000",
     },
     produksi: {
       "Level 1": "0.0",
-      "Level 2": "0.0 – 4.48",
-      "Level 3": "4.48 – 145.0",
-      "Level 4": "145.0 – 1260.0",
-      "Level 5": "1260.0",
+      "Level 2": "0.0 - 4.48",
+      "Level 3": "4.48 - 145.0",
+      "Level 4": "145.0 - 1260.0",
+      "Level 5": "≥ 1260.0",
     },
   };
 

@@ -19,7 +19,7 @@
 /* Custom Properties */
 
 :root {
-  --gap-container: 7rem;
+  --gap-container: 10rem;
   --gap-parent: 3rem;
   --gap-children: 2rem;
   --gap-children-step-2:1rem;
@@ -32,8 +32,8 @@
   --padding-notop:0px 15px;
   --padding-noside:15px 0px;
 
-  --margin-default:0px 50px;
-  --margin-footer: 50px 0px 0px 0px;
+  --margin-default:0px 5rem;
+  --margin-footer: 15rem 0px 0px 0px;
 
   --bg-hero: url('images/bocil.jpg');
 
@@ -43,7 +43,7 @@
 
   --height-text-hero:10rem;
 
-  --transition:all 0.7s ease;
+  --transition:all 0.5s ease;
 }
 
 /* Coding CSS */
@@ -290,6 +290,7 @@ body {
 
 .overlay-cloropethmap{
   background-color: rgba(48, 48, 48, 0.5);
+  color: white;
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari support */
 
@@ -297,6 +298,14 @@ body {
   border-radius: var(--border-radius-step-2);
 
   text-decoration: none;
+  transition: var(--transition);
+}
+
+.overlay-cloropethmap:hover{
+  background-color: rgba(13, 71, 161, 0.7);
+  transform: scale(1.05);
+
+  transition: var(--transition);
 }
 
 .container-2-2-1-2{
@@ -357,9 +366,9 @@ body {
 
 .container-dropdown-2-2-2{
   display: flex;
-  
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: var(--gap-children-step-2);
+  
 }
 
 .dropdown-2-2-2 {
@@ -391,9 +400,17 @@ body {
   background-repeat: no-repeat;
 }
 
+select.dropdown-2-2-2{
+  font-family: 'Manrope', sans-serif;
+}
+
 select.dropdown-2-2-2:focus {
   outline: none;
   box-shadow: 0 0 0 2px #666;
+}
+
+select.dropdown-2-2-2:focus option:first-child {
+    display: none;
 }
 
 .container-aigen{
@@ -494,6 +511,7 @@ select.dropdown-2-2-2:focus {
   flex-direction: row;
   gap: var(--gap-parent);
   margin: var(--margin-default);
+  align-items: stretch;
 }
 
 .container-4-1{
@@ -556,10 +574,12 @@ select.dropdown-2-2-2:focus {
 
 .container-4-2{
   display: flex;
-  height: 20rem;
 }
 
 .img-container-4-2{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: var(--border-radius-step-1);
 }
 
@@ -587,19 +607,34 @@ select.dropdown-2-2-2:focus {
 /* AGAR RESPONSIVE DI LAYAR KECIL */
 
 @media (max-width: 768px) {
+
+  :root {
+    --gap-container: 7rem; 
+  }
+
   .container-2-2 {
     flex-direction: column;
   }
 
   .container-2-2-1,
-  .container-2-2-2 {
+  .container-2-2-2, .container-dropdown-2-2-2 {
     flex-basis: auto;
     flex-grow: unset;
+    flex-wrap: wrap;
     width: 100%;
   }
 
   .container-4 {
-    flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .container-4-2{
+    flex-basis: auto;
+    flex-grow: unset;
+    width: 100%;
   }
 }
 
