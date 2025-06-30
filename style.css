@@ -630,7 +630,7 @@ select.dropdown-2-2-2:focus option:first-child {
 }
 
 .container-aboutme{
-    background-color: #c40000;
+    
     font-family: IBM Plex Sans, sans-serif;
  
     margin: var(--margin-body-except-index);
@@ -643,7 +643,7 @@ select.dropdown-2-2-2:focus option:first-child {
 }
 
 .collage-aboutme{
-    background-color: #0d47a1;
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 kolom */
     grid-template-rows: repeat(3, auto);   /* 3 baris */
@@ -674,12 +674,12 @@ select.dropdown-2-2-2:focus option:first-child {
 }
 
 .text-aboutme{
-  background-color: #0d47a1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    flex-grow: 2;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  flex-grow: 2;
     
     
 }
