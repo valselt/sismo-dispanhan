@@ -35,7 +35,7 @@
   --margin-default:0px 5rem;
   --margin-footer: 15rem 0px 0px 0px;
 
-  --bg-hero: url('images/bocil.jpg');
+  --bg-hero: url('https://i.postimg.cc/qqw223wQ/bocil.jpg');
 
   --border-radius-step-1:30px;
   --border-radius-step-2:20px;
@@ -120,7 +120,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1100;
 
   transition: var(--transition);
 }
