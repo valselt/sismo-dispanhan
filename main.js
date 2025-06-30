@@ -132,9 +132,56 @@ function updateMap() {
   }
 }
 
+function updateIndicators() {
+  const values = getDropdownValues(true); // Get the selected values
+
+  // Set the ranges for each dropdown value
+  let ranges = {
+    luastanam: {
+      'Biru': '0.0',
+      'Hijau': '0.0 – 65.5',
+      'Orange': '65.5 – 1177.74',
+      'Merah': '1177.74 – 4146.45',
+      'Ungu': '4146.45 – 37646.0'
+    },
+    luaspanen: {
+      'Biru': '0.0',
+      'Hijau': '0.0 – 247.36',
+      'Orange': '247.36 – 1821.54',
+      'Merah': '1821.54 – 3000',
+      'Ungu': '3000'
+    },
+    produksi: {
+      'Biru': '0.0',
+      'Hijau': '0.0 – 4.48',
+      'Orange': '4.48 – 145.0',
+      'Merah': '145.0 – 1260.0',
+      'Ungu': '1260.0'
+    }
+  };
+
+  // Get the corresponding range based on selected tipe
+  const selectedTipe = values.tipe;
+  const rangesForTipe = ranges[selectedTipe] || {};
+
+  // Update the <p> elements with the corresponding values
+  document.getElementById('biru-tulisan').innerText = rangesForTipe['Biru'] || 'Biru';
+  document.getElementById('hijau-tulisan').innerText = rangesForTipe['Hijau'] || 'Hijau';
+  document.getElementById('orange-tulisan').innerText = rangesForTipe['Orange'] || 'Orange';
+  document.getElementById('merah-tulisan').innerText = rangesForTipe['Merah'] || 'Merah';
+  document.getElementById('ungu-tulisan').innerText = rangesForTipe['Ungu'] || 'Ungu';
+}
+
+
+// RUN FUNCTION OF THE ABOVE
+function fusionDropdown(){
+  updateMap();
+  updateIndicators();      
+}
+
 ["dropdown-tipe", "dropdown-tanaman", "dropdown-bulan", "dropdown-tahun"]
   .forEach(id => {
-    document.getElementById(id).addEventListener("change", updateMap);
+    document.getElementById(id).addEventListener("change", fusionDropdown);
   });
 
 window.addEventListener("scroll", handleNavbarShrink);
