@@ -20,9 +20,10 @@
 
 :root {
   --gap-container: 7rem;
-  --gap-parent: 2rem;
-  --gap-children: 1rem;
-  --gap-children-step-2:2rem;
+  --gap-parent: 3rem;
+  --gap-children: 2rem;
+  --gap-children-step-2:1rem;
+  --gap-children-step-3:0.5rem;
   
 
   --padding-navbar:30px;
@@ -249,9 +250,15 @@ body {
 }
 
 .container-2-2-1 {
-  position: relative;
   flex-grow: 5;
   flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-children);
+}
+
+.container-2-2-1-1{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -292,6 +299,53 @@ body {
   text-decoration: none;
 }
 
+.container-2-2-1-2{
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-children);
+}
+
+.container-indikator{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-children-step-3);
+}
+.indikator-biru{
+  background-color: blue;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-step-3);
+}
+
+.indikator-hijau{
+  background-color: green;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-step-3);
+}
+
+.indikator-orange{
+  background-color: orange;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-step-3);
+}
+
+.indikator-merah{
+  background-color: red;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-step-3);
+}
+
+.indikator-ungu{
+  background-color: purple;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-step-3);
+}
+
 .container-2-2-2 {
   flex-grow: 5;
   flex-basis: 0;
@@ -299,8 +353,6 @@ body {
   flex-direction: column;
 
   gap: var(--gap-children);
-
-  padding: var(--padding-notop) ;
 }
 
 .container-dropdown-2-2-2{
@@ -544,6 +596,10 @@ select.dropdown-2-2-2:focus {
     flex-basis: auto;
     flex-grow: unset;
     width: 100%;
+  }
+
+  .container-4 {
+    flex-direction: column;
   }
 }
 
