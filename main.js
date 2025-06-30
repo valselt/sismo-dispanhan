@@ -46,8 +46,8 @@ let csvData = [];
 
 // Load data bersamaan
 Promise.all([
-  fetch("prognosa.csv").then((res) => res.text()),
-  fetch("all_kab_kot_indo.geojson").then((res) => res.json()),
+  fetch("data/prognosa.csv").then((res) => res.text()),
+  fetch("data/all_kab_kot_indo.geojson").then((res) => res.json()),
 ]).then(([csvText, geojson]) => {
   csvData = Papa.parse(csvText, { header: true }).data;
 

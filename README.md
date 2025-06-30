@@ -1,1 +1,0 @@
-# sismo-dispanhan
