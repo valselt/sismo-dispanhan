@@ -1,3 +1,5 @@
+// -------------Navbar shrink effect on scroll----------------------
+
 function handleNavbarShrink() {
   const navbar = document.getElementById("navbar");
   const container1 = document.querySelector(".container-1");
@@ -18,6 +20,7 @@ function handleNavbarShrink() {
     texts.forEach((text) => text.classList.remove("shrink"));
   }
 }
+// ------------------Cloropeth map with dropdown filters-------------------
 
 function cleanValue(val) {
   if (!val) return "";
@@ -183,6 +186,7 @@ function updateMap() {
   }
 }
 
+// ------------------Indicators update based on dropdown selection-------------------
 function updateIndicators() {
   const values = getDropdownValues(true); // Get the selected values
 
@@ -228,6 +232,12 @@ function updateIndicators() {
     rangesForTipe["Level 5"] || "Level 5";
 }
 
+
+
+
+//
+//
+//
 // RUN FUNCTION OF THE ABOVE
 function fusionDropdown() {
   updateMap();
@@ -244,3 +254,4 @@ function fusionDropdown() {
 });
 
 window.addEventListener("scroll", handleNavbarShrink);
+
