@@ -1,9 +1,11 @@
 function passwordValidation() {
     const passwordInput = document.getElementById('password');
     const passwordCheckInput = document.getElementById('password-check');
+    const passwordIcon = document.getElementById('password-icon');
+    const passwordCheckIcon = document.getElementById('password-check-icon');
 
-    if (!passwordInput || !passwordCheckInput) {
-        console.warn("Could not find one or both password input fields.");
+    if (!passwordInput || !passwordCheckInput || !passwordIcon || !passwordCheckIcon) {
+        console.warn("Could not find one or more password input fields or icons.");
         return;
     }
 
@@ -32,6 +34,30 @@ function passwordValidation() {
             passwordCheckInput.classList.remove('password-mismatch-focus');
         }
     }
+
+    // Function to toggle password visibility and icon style
+    function togglePasswordVisibility(inputElement, iconElement) {
+        if (inputElement.type === 'password') {
+            inputElement.type = 'text';
+            iconElement.style.backgroundColor = 'var(--color-primary)';
+            iconElement.style.color = 'var(--color-white)';
+            iconElement.textContent = 'visibility';
+        } else {
+            inputElement.type = 'password';
+            iconElement.style.backgroundColor = 'transparent';
+            iconElement.style.color = 'var(--color-black)'; // You might want to define a default color for the icon here, or revert to the one set in CSS
+            iconElement.textContent = 'visibility'; // Change icon back to 'visibility'
+        }
+    }
+
+    // Add event listeners for the password icons
+    passwordIcon.addEventListener('click', () => {
+        togglePasswordVisibility(passwordInput, passwordIcon);
+    });
+
+    passwordCheckIcon.addEventListener('click', () => {
+        togglePasswordVisibility(passwordCheckInput, passwordCheckIcon);
+    });
 
     passwordInput.addEventListener('input', validatePassword);
     passwordCheckInput.addEventListener('input', validatePassword);

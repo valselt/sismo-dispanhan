@@ -233,6 +233,14 @@ body {
   flex-grow: 2;
 }
 
+.password-holder{
+  
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--gap-lr-light);
+}
+
 .input-lr {
   background-color: transparent;
   width: 100%;
@@ -242,6 +250,8 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   transition:var(--transition-cubic-bezier-faster);
+
+  flex-grow: 9;
 }
 
 .input-lr:focus {
@@ -265,6 +275,22 @@ body {
   font-size: 14px; 
   font-weight: normal;
 }
+
+.input-lr-icon{
+  background-color: transparent;
+  padding: 15px;
+  border: 1px solid var(--color-light-gray); 
+  border-radius: var(--border-radius-step-2);
+  font-size: 16px;
+  box-sizing: border-box;
+  transition:var(--transition-cubic-bezier-faster);
+
+  flex-grow: 1;
+
+  cursor: pointer;
+  
+}
+
 
 
 .container-lr-3{
