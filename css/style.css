@@ -91,7 +91,7 @@ body {
 
 /* NAVBAR */
 .container-navbar{
-  background-color: rgba(232, 244, 234, 0.1);
+  background-color: var(--color-navbar-light);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari support */
 
@@ -102,13 +102,13 @@ body {
   align-items: center;
 
 
-  border-radius: 20px;
+  border-radius: var(--border-radius-navbar);
 
   transition: var(--transition);
 }
 
 .container-navbar.shrink{
-  background-color: rgba(54, 54, 54, 0.5);
+  background-color: var(--color-navbar-dark);
   transition: var(--transition);
 }
 
@@ -127,17 +127,20 @@ body {
 }
 
 .button-navbar {
-  background-color: rgba(232, 244, 234, 0.5);
+  background-color: var(--color-button-navbar-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  padding: 20px 15px;
+  border-radius: var(--border-radius-navbar-button);
+  padding: var(--padding-navbar-button);
   cursor: pointer;
   outline: none;
   border: none;
   box-shadow: none;
   text-decoration: none;
+
+  gap: var(--gap-children-step-3);
+  
 
   transition: var(--transition);
 }
@@ -147,15 +150,15 @@ body {
 }
 
 .button-navbar.shrink {
-  background-color: rgba(244, 232, 232, 0.1);
+  background-color: var(--color-button-navbar-dark);
 }
 
 .button-navbar.shrink:hover {
-  background-color: rgba(13, 71, 161, 0.8);;
+  background-color: var(--color-secondary-hover-darker);;
 }
 
 .text-button-navbar {
-  color: #333;
+  color: var(--color-black);
   font-size: 0.75rem;
   font-weight: bold;
 
@@ -164,6 +167,64 @@ body {
 
 .text-button-navbar.shrink{
   color: #ffffff
+}
+
+.account-center-box {
+    display: none; /* Sembunyikan secara default */
+    position: fixed; /* Tetap fixed */
+    top: calc(90px + 40px); 
+    /* Properti 'left' dan 'transform' akan diatur oleh JavaScript */
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 15px;
+    border-radius: var(--border-radius-navbar);
+    z-index: 1001;
+    min-width: 180px;
+    text-align: center;
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0; /* Mulai dengan transparan untuk transisi */
+    pointer-events: none; /* Mencegah interaksi saat disembunyikan */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.account-center-box.is-active {
+    display: flex; /* Tampilkan sebagai flex container */
+    opacity: 1; /* Fade in */
+    pointer-events: auto; /* Izinkan interaksi */
+
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.arrow-sidebar{
+  text-decoration: none;
+}
+
+.line-account-center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:var(--gap-children-step-3);
+}
+
+
+
+.account-center-logout-btn{
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--padding-side-button);
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--border-radius-navbar-button);
+  transition: var(--transition);
+}
+
+.account-center-logout-btn:hover {
+    transform: var(--transform-scale-smaller); 
 }
 
 
@@ -740,6 +801,12 @@ select.dropdown-2-2-2:focus option:first-child {
     flex-basis: auto;
     flex-grow: 0;
     width: 100%;
+  }
+  #navbar.shrink{
+  max-width: 90%;
+  margin: 0px auto;
+  transition: var(--transition);
+
   }
 }
 

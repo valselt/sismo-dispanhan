@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_SESSION['username'] ?? $_SESSION['register_username'] ?? '';
 
     if (empty($username)) {
-        echo json_encode(['status' => 'error', 'message' => 'No user session found for authorization.']);
+        echo json_encode(['status' => 'error', 'message' => 'Tidak ada User dalam session ini yang ditemukan untuk dilakukan authorization.']);
         exit();
     }
 
@@ -25,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($update_stmt->execute()) {
         if ($is_login_status === 1) {
-            echo json_encode(['status' => 'success', 'message' => 'Authorization successful. Redirecting to index.']);
+            echo json_encode(['status' => 'success', 'message' => 'Authorization berhasil. Mengalihkan anda ke Halaman Utama...']);
             unset($_SESSION['register_username']); // Clear if it was from a registration flow
         } else {
-            echo json_encode(['status' => 'success_register', 'message' => 'Authorization successful. Redirecting to login.']);
+            echo json_encode(['status' => 'success_register', 'message' => 'Authorization berhasil. Mengalihkan anda ke Halaman Login...']);
             unset($_SESSION['register_username']); // Clear the register username after successful auth
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Authorization failed.']);
+        echo json_encode(['status' => 'error', 'message' => 'Authorization Gagal.']);
     }
 
     $update_stmt->close();

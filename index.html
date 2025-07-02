@@ -23,12 +23,23 @@
                 <a href="html/about.html" class="button-navbar">
                     <span class="text-button-navbar" aria-label="About Me">ABOUT ME</span>
                 </a>
-                <a href="login.html" class="button-navbar">
+                <a href="login.html" class="button-navbar" id="userStatusLink">
                     <span class="material-symbols-outlined text-button-navbar" aria-label="About Me">person</span>
+                    <span id="loggedInUsername" class="text-button-navbar"></span>
+                    
                 </a>
             </nav>
         </div>
     </header>
+
+    <div id="accountCenterBox" class="account-center-box">
+        <div class="line-account-center">
+            <a href="../html/user/accountcenter.html" class="material-symbols-outlined white arrow-sidebar text-half ">arrow_outward</a>
+            <p class="account-center-title text-bold white text-right text-3per2">Account Center</p>
+        </div>
+        <button id="logoutButton" class="account-center-logout-btn white text-bold-600">Logout</button>
+    </div>
+
     <div class="container">
         <div class="container-1">
             <span class="text-hero text-shadow white">Selamat Datang Di Sistem DISPANHAN.</span>
@@ -178,5 +189,6 @@ Selama periode magang, saya terlibat secara aktif dalam proses perencanaan, peng
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="javascript/main.js"></script>
+    <script src="javascript/user.js"></script>
 </body>
 </html>

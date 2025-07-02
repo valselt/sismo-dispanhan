@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (empty($username) || empty($password)) {
-        echo json_encode(['status' => 'error', 'message' => 'Username and Password are required.']);
+        echo json_encode(['status' => 'error', 'message' => 'Username dan Password harus diisi.']);
         exit();
     }
 
@@ -35,20 +35,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $user['username'];
 
             if ($user['acc_verif'] == 0) {
-                echo json_encode(['status' => 'redirect_to_auth', 'message' => 'Account not authorized. Redirecting to authorization page.']);
+                echo json_encode(['status' => 'redirect_to_auth', 'message' => 'Akun JACKMIA anda belum ter-authorized. Mengalihkan anda ke Halaman Authorization...']);
             } else {
                 // Update is_login to 1 for the currently logging in user
                 $update_stmt = $conn->prepare("UPDATE tbl_users SET is_login = 1 WHERE username = ?");
                 $update_stmt->bind_param("s", $username);
                 $update_stmt->execute();
                 $update_stmt->close(); // Close the statement here
-                echo json_encode(['status' => 'success', 'message' => 'Login successful. Redirecting to dashboard.']);
+                echo json_encode(['status' => 'success', 'message' => 'Login berhasil. Mengalihkan anda ke Halaman Utama...']);
             }
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Incorrect Username or Password.']);
+            echo json_encode(['status' => 'error', 'message' => 'Username atau Password Salah.']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Account not found.']);
+        echo json_encode(['status' => 'error', 'message' => 'Akun dengan username ' . $username . ' tidak ditemukan.']);
     }
 
     $stmt->close();

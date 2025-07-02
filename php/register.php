@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (empty($fullname) || empty($username) || empty($email) || empty($number) || empty($password)) {
-        echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
+        echo json_encode(['status' => 'error', 'message' => 'Semua Field Harus Diisi!.']);
         exit();
     }
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $check_result = $check_stmt->get_result();
 
     if ($check_result->num_rows > 0) {
-        echo json_encode(['status' => 'error', 'message' => 'Username or Email already exists.']);
+        echo json_encode(['status' => 'error', 'message' => 'Username atau Email telah ada.']);
         $check_stmt->close();
         $conn->close();
         exit();
@@ -40,9 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($insert_stmt->execute()) {
         $_SESSION['register_username'] = $username; // Store username in session for auth.html
-        echo json_encode(['status' => 'success', 'message' => 'Registration successful. Redirecting to authorization.']);
+        echo json_encode(['status' => 'success', 'message' => 'Registration berhasil. Mengalihkan anda ke halaman Authorization...']);
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Registration failed. Please try again.']);
+        echo json_encode(['status' => 'error', 'message' => 'Registration gagal. Mohon coba lagi.']);
     }
 
     $insert_stmt->close();
