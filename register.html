@@ -20,10 +20,11 @@
                     <span class="text-hero text-left hero-lr">Register</span>
                     <p class="text">Buatkan akun JACKMIA anda</p>
                 </div>
-                <div class="container-lr-2-2">
-                    <input type="email" id="email" class="input-lr" placeholder="Email" required>
+                <form class="container-lr-2-2" id="registerForm">
+                    <input type="text" id="fullname" class="input-lr" placeholder="Nama Lengkap" required>
                     <input type="text" id="username" class="input-lr" placeholder="Username" required>
-                    <input type="tel" id="telenumber" class="input-lr" placeholder="Nomor Telepon" required>
+                    <input type="email" id="email" class="input-lr" placeholder="Email" required>
+                    <input type="tel" id="number" class="input-lr" placeholder="Nomor Telepon" required>
                     <div class="password-holder">
                         <input type="password" id="password" class="input-lr" placeholder="Password" required>
                         <a type="button" id="password-icon" class="material-symbols-outlined input-lr-icon">visibility</a>
@@ -32,8 +33,7 @@
                         <input type="password" id="password-check" class="input-lr" placeholder="Repeat Password" required>
                         <a type="button" id="password-check-icon" class="material-symbols-outlined input-lr-icon">visibility</a>
                     </div>
-                    
-                </div>
+                </form>
             </div>
             <div class="container-lr-3">
                 <span class="text text-3per4">Lupa Sandi? </span>
@@ -42,7 +42,7 @@
             </div>
             <div class="container-lr-4">
                 <a href="./login.html" class="another-submit-lr text-bold text">Login</a>
-                <button type="submit" class="submit-lr text-bold text">Selanjutnya</button>
+                <button type="submit" form="registerForm" class="submit-lr text-bold text">Selanjutnya</button>
             </div>
         </div>
 

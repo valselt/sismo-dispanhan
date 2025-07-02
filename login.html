@@ -20,13 +20,13 @@
                     <span class="text-hero text-left hero-lr">Login</span>
                     <p class="text">Masukkan akun JACKMIA anda</p>
                 </div>
-                <div class="container-lr-2-2">
-                    <input type="text" id="username" class="input-lr" placeholder="Username" required>
+                <form class="container-lr-2-2" id="loginForm">
+                    <input type="email" id="email" class="input-lr" placeholder="Email" required>
                     <div class="password-holder">
                         <input type="password" id="password" class="input-lr" placeholder="Password" required>
                         <a type="button" id="password-icon" class="material-symbols-outlined input-lr-icon">visibility</a>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="container-lr-3">
                 <span class="text text-3per4">Lupa Sandi? </span>
@@ -34,8 +34,8 @@
 ">Tanyakan Ke IT Management Anda.</a>
             </div>
             <div class="container-lr-4">
-                <a href="./register.html" class="another-submit-lr text-bold text">Buat Akun</a>
-                <button type="submit" class="submit-lr text-bold text">Selanjutnya</button>
+                <a href="register.html" class="another-submit-lr text-bold text">Buat Akun</a>
+                <button type="submit" form="loginForm" class="submit-lr text-bold text">Selanjutnya</button>
             </div>
         </div>
 
