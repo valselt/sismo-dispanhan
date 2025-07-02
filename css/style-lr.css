@@ -164,7 +164,7 @@ body {
   flex-direction: row;
   justify-content: flex-end;
 
-  gap:var(--gap-lr-mostlight)
+  gap:var(--gap-lr-mostlight);
 
 }
 .ask-it-management {
@@ -240,18 +240,178 @@ body {
   background-color:var(--color-primary-hover) ;
 }
 
+/* AUTH */
+
+.container-auth-box{
+  background-color: var(--color-white);
+  padding: var(--padding-lr);
+  gap: var(--gap-lr);
+
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  width: 40%;
+  height: 80%;
+  
+
+  border-radius: var(--border-radius-lr);
+}
+
+.container-auth-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:var(--gap-lr-mostlight);
+
+  height: 5%;
+}
+
+.container-auth-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 20%;
+  max-width: 100%;
+
+}
+
+.container-auth-2 img {
+  width: calc(100% / 3 - var(--gap-children));
+  max-width: 100%;
+  height: 100%;
+
+  object-fit:contain;
+}
+
+.container-auth-3{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding:var(--padding-default);
+  gap: var(--gap-children-step-2);
+
+  height: 15%;
+  
+}
+
+.container-auth-3-1{
+  justify-content: center;
+  align-items: stretch;
+  display: flex;
+  width:15%;
+  height: auto;
+  
+  flex-grow: 1;
+}
+
+.container-auth-3-1 img {  
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit:contain;
+
+}
+
+.container-auth-3-2{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-auth-3-2-verified{
+  display: flex;
+  align-items: center;
+  gap: var(--gap-children-step-3);
+}
+
+.container-auth-4{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: var(--gap-children-step-2);
+
+}
+
+.submit-auth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-inside-lr);
+
+  background-color: var(--color-green);
+  color: var(--color-white);
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: var(--border-radius-step-1);
+
+  transition: var(--transition-cubic-bezier-faster);
+
+  flex-grow: 1;
+}
+
+.submit-auth:hover{
+  background-color: var(--color-light-green);
+}
+
+.another-submit-auth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-inside-lr);
+
+  background-color: transparent;
+  color: var(--color-black);
+
+  cursor: pointer;
+
+  border: 2px solid var(--color-black);
+  border-radius: var(--border-radius-step-1);
+
+  text-decoration: none;
+
+  flex-grow: 1;
+
+  transition: var(--transition-cubic-bezier-faster);
+}
+
+.another-submit-auth:hover{
+  background-color:var(--color-green-hover) ;
+}
+
 /* RESPONSIF KE HP */
 
-@media (max-width: 768px) {
+
+@media(max-width:1500px){
+  .container-lr-box{
+    width: 60%;
+  }
+
+  .container-auth-box{
+    width: 60%;
+  }
+}
+
+@media (max-width: 1100px) {
 
   .container-lr-box{
     padding: var(--padding-lr-phone);
-  }
-
-  .container-lr-box{
     width: 85%;
     flex-wrap: wrap;
   }
+
+  .container-auth-box{
+    padding: var(--padding-lr-phone);
+    width: 95%;
+  }
+
   .container-lr-2 {
     flex-wrap: wrap;
     flex-direction: column;
@@ -262,4 +422,5 @@ body {
     flex-shrink: 1;
     flex-basis: auto;
   }
+
 }

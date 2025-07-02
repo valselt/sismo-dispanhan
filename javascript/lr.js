@@ -7,7 +7,8 @@ function passwordValidation() {
 
     if (!passwordInput || !passwordIcon) {
         console.warn("Could not find password input field or its icon.");
-        return;
+        // This means it's likely the register page with password-check, or an incomplete HTML
+        // For login.html, password-check-input won't exist, which is fine.
     }
 
     function validatePassword() {
@@ -55,9 +56,12 @@ function passwordValidation() {
         }
     }
 
-    passwordIcon.addEventListener('click', () => {
-        togglePasswordVisibility(passwordInput, passwordIcon);
-    });
+    if (passwordIcon) {
+        passwordIcon.addEventListener('click', () => {
+            togglePasswordVisibility(passwordInput, passwordIcon);
+        });
+    }
+
 
     if (passwordCheckInput && passwordCheckIcon) {
         // Add focus listener to apply blue styling when it's being typed into
@@ -89,10 +93,88 @@ function passwordValidation() {
         passwordCheckIcon.addEventListener('click', () => {
             togglePasswordVisibility(passwordCheckInput, passwordCheckIcon);
         });
-        
+
         passwordInput.addEventListener('input', validatePassword);
         passwordCheckInput.addEventListener('input', validatePassword);
     }
 }
 
-document.addEventListener('DOMContentLoaded', passwordValidation);
+document.addEventListener('DOMContentLoaded', () => {
+    passwordValidation();
+
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const formData = new FormData();
+            formData.append('username', username);
+            formData.append('password', password);
+
+            try {
+                const response = await fetch('php/login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    window.location.href = 'index.html';
+                } else if (data.status === 'redirect_to_auth') {
+                    window.location.href = 'auth.html';
+                } else {
+                    alert(data.message); // Show error message in a popup
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during login. Please try again.');
+            }
+        });
+    }
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const fullname = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const number = document.getElementById('number').value;
+            const password = document.getElementById('password').value;
+            const passwordCheck = document.getElementById('password-check').value;
+
+            if (password !== passwordCheck) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('fullname', fullname);
+            formData.append('username', username);
+            formData.append('email', email);
+            formData.append('number', number);
+            formData.append('password', password);
+
+            try {
+                const response = await fetch('php/register.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    window.location.href = 'auth.html'; // Redirect to auth.html after successful registration
+                } else {
+                    alert(data.message); // Show error message in a popup
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during registration. Please try again.');
+            }
+        });
+    }
+});
