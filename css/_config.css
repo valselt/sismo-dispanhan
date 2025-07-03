@@ -27,6 +27,13 @@
   --margin-left: 0rem 0rem 0rem 5rem;
   --margin-right-small: 0rem 2rem 0rem 0rem;
   --margin-left-small: 0rem 0rem 0rem 2rem;
+  --margin-bottom-small:0rem 0rem 2rem 0rem;
+
+  --margin-no-side:10rem 0rem;
+  --margin-no-side-small:5rem 0rem;
+  --margin-no-side-smaller:1rem 0rem;
+  --margin-no-side-smallest:0.25rem 0rem;
+
 
   --bg-hero: url('https://i.postimg.cc/qqw223wQ/bocil.jpg');
   --bg-hero-analisis: url('https://i.postimg.cc/7YWH7Cw9/petani.png');
