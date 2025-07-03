@@ -1,0 +1,213 @@
+:root {
+  --gap-container: 10rem;
+  --gap-parent: 3rem;
+  --gap-children: 2rem;
+  --gap-children-step-1: 1.5rem;
+  --gap-children-step-2: 1rem;
+  --gap-children-step-2-5: 0.75rem;
+  --gap-children-step-3: 0.5rem;
+  --gap-lr: 2rem;
+  --gap-lr-light: 1rem;
+  --gap-lr-lighter: 0.5rem;
+  --gap-lr-mostlight: 0.25rem;
+
+  --padding-navbar: 30px;
+  --padding-navbar-button:20px 15px;
+  --padding-side-button:5px 15px;
+  --padding-default: 15px;
+  --padding-default-large: 20px;
+  --padding-notop: 0px 15px;
+  --padding-notop-small:0px 10px;
+  --padding-noside: 15px 0px;
+  --padding-bottom: 0px 0px 15px 0px
+
+  --padding-lr: 5rem 2rem;
+  --padding-lr-phone: 5rem 2rem;
+  --padding-inside-lr: 0.5rem 2rem;
+
+  --margin-default: 0rem 5rem;
+  --margin-body-except-index: 10rem 5rem 0rem 5rem;
+  --margin-footer: 15rem 0rem 0rem 0rem;
+  --margin-right: 0rem 5rem 0rem 0rem;
+  --margin-left: 0rem 0rem 0rem 5rem;
+  --margin-right-small: 0rem 2rem 0rem 0rem;
+  --margin-left-small: 0rem 0rem 0rem 2rem;
+  --margin-bottom-small:0rem 0rem 2rem 0rem;
+
+  --margin-no-side:10rem 0rem;
+  --margin-no-side-small:5rem 0rem;
+  --margin-no-side-smaller:1rem 0rem;
+  --margin-no-side-smallest:0.25rem 0rem;
+
+
+  --bg-hero: url('https://i.postimg.cc/qqw223wQ/bocil.jpg');
+  --bg-hero-analisis: url('https://i.postimg.cc/7YWH7Cw9/petani.png');
+
+  --border-radius-step-1: 30px;
+  --border-radius-step-2: 20px;
+  --border-radius-step-3: 15px;
+  --border-radius-lr: 40px;
+
+  --border-radius-navbar:20px;
+  --border-radius-navbar-button:10px;
+
+  --height-text-hero: 10rem;
+
+  --transition: all 0.5s ease;
+  --transition-cubic-bezier-faster: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-cubic-bezier: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transform-scale: scale(1.1);
+  --transform-scale-small: scale(1.05);
+  --transform-scale-smaller: scale(1.02);
+
+  --color-primary: #0D47A1;
+  --color-primary-hover: rgba(13, 71, 161, 0.3);
+  --color-primary-hover-darker: rgba(13, 71, 161, 0.7);
+  --color-secondary: #115DCF;
+  --color-secondary-hover: rgba(17, 93, 207, 0.3);
+  --color-secondary-hover-darker: rgba(17, 93, 207, 0.7);
+  --color-tertiary: #6AABFF;
+  --color-tertiary-hover: rgba(106, 171, 255, 0.3);
+  --color-tertiary-hover-darker: rgba(106, 171, 255, 0.7);
+  --color-white: #F3F3F3;
+  --color-dark-gray: #c0c0c0;
+  --color-light-gray: #d9d9d9;
+  --color-black: #343A40;
+  --color-light-green:#5bf872;
+  --color-green:#3fac4f;
+  --color-green-hover:rgba(63, 172, 79, 0.7);
+  --color-dark-green:#2c7937;
+  --color-red:#b71c1c;
+  --color-red-darker:#831414;
+
+  --color-navbar-light:rgba(232, 244, 234, 0.1);
+  --color-navbar-dark:rgba(54, 54, 54, 0.5);
+  --color-button-navbar-light:rgba(232, 244, 234, 0.5);
+  --color-button-navbar-dark:rgba(244, 232, 232, 0.1);
+}
+
+.text {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.text-half {
+  font-size: 0.5rem;
+}
+
+.text-3per4 {
+  font-size: 0.75rem;
+}
+
+.text-3per2{
+  font-size: 1.5rem;
+}
+.text-2 {
+  font-size: 2rem;
+}
+
+.text-5 {
+  font-size: 5rem;
+}
+
+.text-light {
+  font-weight: lighter;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-bold-100{
+  font-weight: 100;
+}
+
+.text-bold-200{
+  font-weight: 200;
+}
+
+.text-bold-300{
+  font-weight: 300;
+}
+
+.text-bold-400{
+  font-weight:400;
+}
+
+.text-bold-500{
+  font-weight:500;
+}
+
+.text-bold-600{
+  font-weight:600;
+}
+
+.text-bold-700{
+  font-weight:700;
+}
+
+.text-hero {
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.text-hero-left {
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.text-hero-bigger{
+  font-size: 4rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.text-hero-bigger-left {
+  font-size: 4rem;
+  font-weight:bolder;
+  text-align: left;
+}
+
+.text-title {
+  font-size: 2rem;
+}
+
+.text-title-bold {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.white {
+  color: var(--color-white);
+}
+
+.black {
+  color: var(--color-black);
+}
+
+.red{
+  color: var(--color-red);
+}
+
+.primary{
+  color: var(--color-primary)
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-middle {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

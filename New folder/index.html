@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DISPANHAN</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/SxfbCNbR/centraljava.png">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header id="navbar">
+        <div class="container-navbar">
+            <div class="navbar-left">
+                <img src="https://i.postimg.cc/SxfbCNbR/centraljava.png"/>
+            </div>
+            <nav class="navbar-right">
+                <a href="index.html" class="button-navbar" aria-label="Home">
+                    <span class="text-button-navbar">HOME</span>
+                </a>
+                <a href="html/about.html" class="button-navbar">
+                    <span class="text-button-navbar" aria-label="About Me">ABOUT ME</span>
+                </a>
+                <a href="login.html" class="button-navbar" id="userStatusLink">
+                    <span class="material-symbols-outlined text-button-navbar" aria-label="About Me">person</span>
+                    <span id="loggedInUsername" class="text-button-navbar"></span>
+                    <span id="verified-icon" class="material-symbols-outlined text-button-navbar">verified</span> </a>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="accountCenterBox" class="account-center-box">
+        <div class="line-account-center">
+            <a href="html/user/accountcenter.html" class="material-symbols-outlined white arrow-sidebar text-half ">arrow_outward</a>
+            <p class="account-center-title text-bold white text-right text-3per2">Account Center</p>
+        </div>
+        <div class="account-center-divider"></div>   <!-- divider -->
+        <div class="account-center-menu">
+            <div class="line-role-user">
+                <span class="text-3per4">Role Anda Saat ini :</span>
+                <span id="userRoleDisplay" class="text-3per4 text-bold white"></span>
+            </div>
+        </div>
+        
+        <button id="logoutButton" class="account-center-logout-btn white text-bold-600">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="container-1">
+            <span class="text-hero text-shadow white">Selamat Datang Di Sistem DISPANHAN.</span>
+        </div>
+        <div class="container-2">
+            <div class="container-2-1">
+                <span class="text-title">Cloropeth dari </span>
+                <span class="text-title-bold">Jawa Tengah</span>
+            </div>
+            <div class="container-2-2">
+                <div class="container-2-2-1">
+                    <div class="container-2-2-1-1">
+                        <div id="map" class="cloropethmap"></div>
+                        <div class="container-overlay-cloropethmap">
+                            <a class="material-symbols-outlined overlay-cloropethmap" href="https://github.com/eppofahmi/geojson-indonesia/blob/master/kota/all_kabkota_ind.geojson" target="_blank">folder_code</a>
+                            <a class="material-symbols-outlined overlay-cloropethmap" href="https://leafletjs.com/" target="_blank">globe</a>
+                        </div>
+                    </div>
+                    <div class="container-2-2-1-2">
+                        <div class="container-indikator">
+                            <a class="indikator-ungu"></a>
+                            <p id="level1-tulisan"></p>
+                        </div>
+                        <div class="container-indikator">
+                            <a class="indikator-merah"></a>
+                            <p id="level2-tulisan"></p>
+                        </div>
+                        <div class="container-indikator">
+                            <a class="indikator-orange"></a>
+                            <p id="level3-tulisan"></p>
+                        </div>
+                        <div class="container-indikator">
+                            <a class="indikator-hijau"></a>
+                            <p id="level4-tulisan"></p>
+                        </div>
+                        <div class="container-indikator">
+                            <a class="indikator-biru"></a>
+                            <p id="level5-tulisan"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-2-2-2">
+                    <div class="container-dropdown-2-2-2">
+                        <select id="dropdown-tipe" class="dropdown-2-2-2">
+                            <option value="">Pilih tipe</option>
+                            <option value="luastanam">Luas Tanam</option>
+                            <option value="luaspanen">Luas Panen</option>
+                            <option value="produksi">Produksi</option>
+                        </select>
+                        <select id="dropdown-tanaman" class="dropdown-2-2-2">
+                            <option value="">Pilih Tanaman</option>
+                            <option value="padi">Padi</option>
+                            <option value="jagung">Jagung</option>
+                            <option value="kedelai">Kedelai</option>
+                            <option value="kacangtanah">Kacang Tanah</option>
+                            <option value="kacanghijau">Kacang Hijau</option>
+                            <option value="ubikayu">Ubi Kayu</option>
+                            <option value="ubijalar">Ubi Jalar</option>
+                            <option value="bawangmerah">Bawang Merah</option>
+                            <option value="bawangputih">Bawang Putih</option>
+                            <option value="cabebesar">Cabe Besar</option>
+                            <option value="caberawit">Cabe Rawit</option>
+                            <option value="kentang">Kentang</option>
+                            <option value="tomat">Tomat</option>
+                            <option value="cabekeriting">Cabe Keriting</option>
+                        </select>
+                        <select id="dropdown-bulan" class="dropdown-2-2-2">
+                            <option value="">Pilih Bulan</option>
+                            <option value="januari">Januari</option>
+                            <option value="februari">Februari</option>
+                            <option value="maret">Maret</option>
+                            <option value="april">April</option>
+                            <option value="mei">Mei</option>
+                            <option value="juni">Juni</option>
+                            <option value="juli">Juli</option>
+                            <option value="agustus">Agustus</option>
+                            <option value="september">September</option>
+                            <option value="oktober">Oktober</option>
+                            <option value="november">November</option>
+                            <option value="desember">Desember</option>
+                        </select>
+                        <select id="dropdown-tahun" class="dropdown-2-2-2">
+                            <option value="">Pilih Tahun</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                    <div class="container-aigen">
+                        <span class="material-symbols-outlined white">wand_shine</span>
+                        <span class="text-bold white">AI Generated</span>
+                    </div>
+                    <div class="container-aigen-response">
+                        <p class="text-bold">Lorem inceptos himenaeos.</p>
+                    </div>
+                    <div class="container-mention">
+                        <img src="https://i.postimg.cc/7LZdz3Nt/jacksai.png" class="ai-mention"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-3">
+            <div class="text-hero-container-3">
+                <span class="text-hero">Dataset yang Digunakan.</span>
+            </div>
+            <div class="container-link">
+                <a class="link" href="https://drive.google.com/file/d/1MxaAmG5RXNdWvrEXVzrooO6LgzwxDVNS/view?usp=sharing" aria-label="link1">
+                    <img src="https://i.postimg.cc/WbmHfWWf/docs.png" class="img-link"/>
+                    <p class="p-link text-bold text-middle black">PROGNOSA 2021-2024</p>
+                </a>
+                <a class="link" href="https://drive.google.com/drive/folders/1SzsuXiYYn8XKeIrG-FVZKWncjxh9-DnA?usp=sharing" aria-label="link2">
+                    <img src="https://i.postimg.cc/ZRyfPVvH/folderdrive.png" class="img-link"/>
+                    <p class="p-link text-bold text-middle black">JATENG DALAM ANGKA</p>
+                </a>
+            </div>
+            <p class="text text-middle">Dataset yang ditampilkan di atas merupakan sumber data utama yang digunakan dalam proses pengembangan model prediksi stok dan harga. Pemilihan dataset dilakukan secara cermat dengan mempertimbangkan tingkat relevansi, keandalan, dan konsistensi data terhadap tujuan analisis. Data ini memegang peran penting dalam tahapan eksplorasi, pelatihan model, serta evaluasi performa prediksi. Penggunaan dataset ini memungkinkan pengembangan model yang mampu menghasilkan prediksi yang akurat dan sesuai dengan kebutuhan analisis di lapangan. Seluruh data yang digunakan dalam proyek ini diperoleh dari Bidang Kestabilan dan Stabilisasi Pangan, Dinas Ketahanan Pangan Provinsi Jawa Tengah sebagai pihak penyedia data resmi.</p> 
+        </div>
+        <div class="container-4">
+            <div class="container-4-1">
+                <div class="text-hero-container-4">
+                    <span class="text-hero text-left">Website Analisis.</span>
+                </div>
+                <p class="text">Website ini merupakan hasil dari kegiatan magang yang saya jalani selama lima bulan, yang sekaligus menjadi implementasi langsung dari hasil observasi dan analisis yang telah saya lakukan selama masa tersebut.
+Selama periode magang, saya terlibat secara aktif dalam proses perencanaan, pengembangan, dan evaluasi website ini, yang dirancang khusus untuk mendukung Training menggunakan Virtual Private Server (VPS) secara Online. </p>
+                <div class="container-4-1-1">
+                    <a class="button-harga text-middle text-bold white" href="html/harga.html">Analisis Harga Pangan di Jawa Tengah</a>
+                    <a class="button-stok text-middle text-bold white" href="html/stok.html">Analisis Stok Harga di Jawa Tengah</a>
+                </div>
+            </div>
+            <div class="container-4-2">
+                <img src="https://i.postimg.cc/ZRppR3pC/flowgraph.png" class="img-container-4-2"/>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container-footer">
+            <div class="img-footer">
+                <img src="icon/logojackmia.png" class="img-footer"/>
+            </div>
+            <p class="white">Website ini dibuat Untuk Memenuhi Projek akhir dari Magang</p>
+            <span class="white text-bold">Copyright © 2025</span>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/user.js"></script>
+</body>
+</html>

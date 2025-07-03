@@ -2,7 +2,9 @@
   --gap-container: 10rem;
   --gap-parent: 3rem;
   --gap-children: 2rem;
+  --gap-children-step-1: 1.5rem;
   --gap-children-step-2: 1rem;
+  --gap-children-step-2-5: 0.75rem;
   --gap-children-step-3: 0.5rem;
   --gap-lr: 2rem;
   --gap-lr-light: 1rem;
@@ -15,7 +17,10 @@
   --padding-default: 15px;
   --padding-default-large: 20px;
   --padding-notop: 0px 15px;
+  --padding-notop-small:0px 10px;
   --padding-noside: 15px 0px;
+  --padding-bottom: 0px 0px 15px 0px;
+
   --padding-lr: 5rem 2rem;
   --padding-lr-phone: 5rem 2rem;
   --padding-inside-lr: 0.5rem 2rem;
@@ -73,6 +78,8 @@
   --color-green:#3fac4f;
   --color-green-hover:rgba(63, 172, 79, 0.7);
   --color-dark-green:#2c7937;
+  --color-red:#b71c1c;
+  --color-red-darker:#831414;
 
   --color-navbar-light:rgba(232, 244, 234, 0.1);
   --color-navbar-dark:rgba(54, 54, 54, 0.5);
@@ -98,6 +105,10 @@
 }
 .text-2 {
   font-size: 2rem;
+}
+
+.text-5 {
+  font-size: 5rem;
 }
 
 .text-light {
@@ -148,6 +159,18 @@
   text-align: left;
 }
 
+.text-hero-bigger{
+  font-size: 4rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.text-hero-bigger-left {
+  font-size: 4rem;
+  font-weight:bolder;
+  text-align: left;
+}
+
 .text-title {
   font-size: 2rem;
 }
@@ -163,6 +186,10 @@
 
 .black {
   color: var(--color-black);
+}
+
+.red{
+  color: var(--color-red);
 }
 
 .primary{

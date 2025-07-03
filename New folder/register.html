@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register with JACKMIA Account</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/8PkWTkdD/logo-jackmia.png">
+    <link rel="stylesheet" href="css/style-lr.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container-lr">
+        <div class="container-lr-box">
+            <div class="container-lr-1">
+                    <img src="https://i.postimg.cc/8PkWTkdD/logo-jackmia.png" class="img-lr" alt="JACKMIA"/>
+            </div>
+            <div class="container-lr-2">
+                <div class="container-lr-2-1">
+                    <span class="text-hero text-left hero-lr">Register</span>
+                    <p class="text">Buatkan akun JACKMIA anda</p>
+                </div>
+                <form class="container-lr-2-2" id="registerForm">
+                    <input type="text" id="fullname" class="input-lr" placeholder="Nama Lengkap" required>
+                    <input type="text" id="username" class="input-lr" placeholder="Username" required>
+                    <input type="email" id="email" class="input-lr" placeholder="Email" required>
+                    <input type="tel" id="number" class="input-lr" placeholder="Nomor Telepon" required>
+                    <div class="password-holder">
+                        <input type="password" id="password" class="input-lr" placeholder="Password" required>
+                        <a type="button" id="password-icon" class="material-symbols-outlined input-lr-icon">visibility</a>
+                    </div>
+                    <div class="password-holder">
+                        <input type="password" id="password-check" class="input-lr" placeholder="Repeat Password" required>
+                        <a type="button" id="password-check-icon" class="material-symbols-outlined input-lr-icon">visibility</a>
+                    </div>
+                </form>
+            </div>
+            <div class="container-lr-3">
+                <span class="text text-3per4">Ingin Register menjadi Admin? </span>
+                <a class="ask-it-management text text-3per4 text-bold" href="https://tinyurl.com/AdminSistemRequestITManagement">Tanyakan Ke IT Management Anda.</a>
+            </div>
+            <div class="container-lr-4">
+                <a href="./login.html" class="another-submit-lr text-bold text">Login</a>
+                <button type="submit" form="registerForm" class="submit-lr text-bold text">Selanjutnya</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="javascript/lr.js"></script>
+</body>
+</html>
