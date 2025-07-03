@@ -23,114 +23,172 @@
             </div>
         </div>
     </header>
+
+    <div class="container-account-center">
+        <div class="container-acc-1">
+            <a class="text-hero-left black">Account Center</a>
+            <a class="material-symbols-outlined text-5">contacts_product</a>
+        </div>
+        <div class="container-acc-2">
+            <div class="placeholder-photoprofile-acc">
+                <img src="https://i.postimg.cc/g2mF41Hj/cangkul11.png"/>
+            </div>
+            <div class="container-photoprofile">
+                <span class="text-3per2 text-bold">Photo Profile</span>
+                <div class="container-button-photoprofile">
+                    <button class="button-acc">
+                        <span class="material-symbols-outlined text-3per4">edit</span>
+                        <span class="text">Change</span>
+                    </button>
+                    <button class="button-acc">
+                        <span class="material-symbols-outlined text-3per4">delete</span>
+                        <span class="text">Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container-acc-3">
+            <div class="container-button-edit">
+                <button class="button-acc" id="editProfileButton">
+                    <span class="material-symbols-outlined text-3per4">person_edit</span>
+                </button>
+            </div>
+            <div class="container-info-acc" id="container-role">
+                <div class="info-left">
+                    <p>Role Anda</p>
+                </div>
+                <p class="colon">:</p>
+                <div class="info-right">
+                    <p>value "role"</p>
+                </div>
+            </div>
+            <div class="container-biodata">
+                <div class="container-info-acc">
+                    <div class="info-left">
+                        <p>Username</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="info-right">
+                        <p>value "username"</p>
+                    </div>
+                </div>
+                <div class="container-info-acc">
+                    <div class="info-left">
+                        <p>Nama Lengkap</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="info-right">
+                        <p>value "fullname"</p>
+                    </div>
+                </div>
+                <div class="container-info-acc">
+                    <div class="info-left">
+                        <p>Email</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="info-right">
+                        <p>value "email"</p>
+                    </div>
+                </div>
+                <div class="container-info-acc">
+                    <div class="info-left">
+                        <p>Nomor Telepon</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="info-right">
+                        <p>value "number"</p>
+                    </div>
+                </div>
+                <div class="container-info-acc">
+                    <div class="info-left">
+                        <p>Password</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="info-right">
+                        <p>value "password"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-acc-4">
+            <div class="danger-zone-acc">
+                <span>Danger Zone</span>
+                <span class="material-symbols-outlined red">warning</span>
+            </div>
+            <div class="danger-zone-button-container">
+                <button class="danger-zone-button" id="changePasswordButton">
+                    <span class="material-symbols-outlined">key</span>
+                    <span class="text">Ubah Password</span>
+                </button>
+                <button class="danger-zone-button">
+                    <span class="material-symbols-outlined">delete_forever</span>
+                    <span class="text">Hapus Akun JACKMIA</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- POP UP UBAH PROFILE -->
+    <div class="edit-profile-popup" id="editProfilePopup">
+        <div class="popup-header">
+            <span class="text-2 text-bold">Edit Profil Anda</span>
+            <button class="close-button" id="closePopupButton">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="popup-body">
+            <div class="popup-input-group">
+                <label for="editUsername">Username Baru:</label>
+                <input type="text" id="editUsername" placeholder="Masukkan username baru">
+            </div>
+            <div class="popup-input-group">
+                <label for="editFullname">Nama Lengkap Baru:</label>
+                <input type="text" id="editFullname" placeholder="Masukkan nama lengkap baru">
+            </div>
+            <div class="popup-input-group">
+                <label for="editEmail">Email Baru:</label>
+                <input type="email" id="editEmail" placeholder="Masukkan email baru">
+            </div>
+            <div class="popup-input-group">
+                <label for="editNumber">Nomor Telepon Baru:</label>
+                <input type="tel" id="editNumber" placeholder="Masukkan nomor telepon baru">
+            </div>
+        </div>
+        <div class="popup-footer">
+            <button class="button-acc" id="saveProfileButton">Simpan Perubahan</button>
+        </div>
+    </div>
+
+    <!-- POP UP UBAH PASSWORD -->
+
+    <div class="overlay" id="passwordOverlay"></div> <div class="change-password-popup" id="changePasswordPopup">
+        <div class="popup-header">
+            <h3>Ubah Password Anda</h3>
+            <button class="close-button" id="closePasswordPopupButton">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="popup-body">
+            <div class="popup-input-group">
+                <label for="oldPassword">Password Lama:</label>
+                <input type="password" id="oldPassword" placeholder="Masukkan password lama Anda">
+            </div>
+            <div class="popup-input-group">
+                <label for="newPassword">Password Baru:</label>
+                <input type="password" id="newPassword" placeholder="Masukkan password baru">
+            </div>
+            <div class="popup-input-group">
+                <label for="confirmNewPassword">Konfirmasi Password Baru:</label>
+                <input type="password" id="confirmNewPassword" placeholder="Konfirmasi password baru">
+            </div>
+        </div>
+        <div class="popup-footer">
+            <button class="button-acc" id="saveNewPasswordButton">Simpan Password Baru</button>
+        </div>
+    </div>
+    <script src="../../javascript/account-center.js"></script>
 </body>
- <div class="container-account-center">
-    <div class="container-acc-1">
-        <a class="text-hero-left black">Account Center</a>
-        <a class="material-symbols-outlined text-5">contacts_product</a>
-    </div>
-    <div class="container-acc-2">
-        <div class="placeholder-photoprofile-acc">
-            <img src="https://i.postimg.cc/g2mF41Hj/cangkul11.png"/>
-        </div>
-        <div class="container-photoprofile">
-            <span class="text-3per2 text-bold">Photo Profile</span>
-            <div class="container-button-photoprofile">
-                <button class="button-acc">
-                    <span class="material-symbols-outlined text-3per4">edit</span>
-                    <span class="text">Change</span>
-                </button>
-                <button class="button-acc">
-                    <span class="material-symbols-outlined text-3per4">delete</span>
-                    <span class="text">Delete</span>
-                </button>
-
-            </div>
-        </div>
-    </div>
-    <div class="container-acc-3">
-        <div class="container-button-edit">
-            <button class="button-acc">
-                <span class="material-symbols-outlined text-3per4">person_edit</span>
-            </button>
-        </div>
-        <div class="container-info-acc" id="container-role">
-            <div class="info-left">
-                <p>Role Anda</p>
-            </div>
-            <p class="colon">:</p>
-            <div class="info-right">
-                <p>value "role"</p>
-            </div>
-        </div>
-        <div class="container-biodata">
-            <div class="container-info-acc">
-                <div class="info-left">
-                    <p>Username</p>
-                </div>
-                <p class="colon">:</p>
-                <div class="info-right">
-                    <p>value "username"</p>
-                </div>
-            </div>
-            <div class="container-info-acc">
-                <div class="info-left">
-                    <p>Nama Lengkap</p>
-                </div>
-                <p class="colon">:</p>
-                <div class="info-right">
-                    <p>value "fullname"</p>
-                </div>
-            </div>
-            <div class="container-info-acc">
-                <div class="info-left">
-                    <p>Email</p>
-                </div>
-                <p class="colon">:</p>
-                <div class="info-right">
-                    <p>value "email"</p>
-                </div>
-            </div>
-            <div class="container-info-acc">
-                <div class="info-left">
-                    <p>Nomor Telepon</p>
-                </div>
-                <p class="colon">:</p>
-                <div class="info-right">
-                    <p>value "number"</p>
-                </div>
-            </div>
-            <div class="container-info-acc">
-                <div class="info-left">
-                    <p>Password</p>
-                </div>
-                <p class="colon">:</p>
-                <div class="info-right">
-                    <p>value "password"</p>
-                </div>
-            </div>
-        </div>
-
-        
-        
-    </div>
-    <div class="container-acc-4">
-        <div class="danger-zone-acc">
-            <span>Danger Zone</span>
-            <span class="material-symbols-outlined red">warning</span>
-        </div>
-        <div class="danger-zone-button-container">
-            <button class="danger-zone-button">
-                <span class="material-symbols-outlined">key</span>
-                <span class="text">Ubah Password</span>
-            </button>
-            <button class="danger-zone-button">
-                <span class="material-symbols-outlined">delete_forever</span>
-                <span class="text">Hapus Akun JACKMIA</span>
-            </button>
-        </div>
-    </div>
- </div>
-
- <script src="../../javascript/account-center.js"></script>
 </html>

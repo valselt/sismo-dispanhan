@@ -245,9 +245,198 @@ body {
   
 }
 
+/* POP UP EDIT PROFILE */
+
+.overlay {
+    position: fixed; /* Tetap di posisi yang sama saat di-scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Hitam transparan */
+    backdrop-filter: blur(5px); /* Efek blur pada background di belakang overlay */
+    -webkit-backdrop-filter: blur(5px); /* Untuk kompatibilitas Safari */
+    z-index: 999; /* Pastikan di atas konten lain tapi di bawah popup */
+    display: none; /* Sembunyikan secara default */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Edit Profil */
+.edit-profile-popup {
+    position: fixed; /* Tetap di posisi yang sama saat di-scroll */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Pusatkan popup */
+    width: 60%; /* Lebar 60% dari viewport */
+    height: 40%; /* Tinggi 40% dari viewport */
+    background-color: var(--color-white); /* Warna latar belakang popup */
+    border-radius: var(--border-radius-step-1); /* Border radius sesuai tema Anda */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek kedalaman */
+    z-index: 1000; /* Pastikan di atas overlay */
+    display: none; /* Sembunyikan secara default */
+    flex-direction: column;
+    padding: var(--padding-default); /* Padding di dalam popup */
+    gap: var(--gap-children-step-2-5); /* Jarak antar bagian popup */
+    max-width: 600px; /* Batasan lebar maksimum agar tidak terlalu besar di layar lebar */
+    max-height: 400px; /* Batasan tinggi maksimum */
+    overflow-y: auto; /* Agar bisa di-scroll jika kontennya panjang */
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--padding-children-step-3);
+}
+
+.popup-header h3 {
+    margin: 0;
+    color: var(--color-black);
+}
+
+.close-button {
+    background-color: var(--color-red);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--border-radius-step-3);
+}
+
+.close-button .material-symbols-outlined {
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.close-button:hover {
+    background-color: var(--color-red-darker); /* Ubah warna saat hover */
+}
+
+
+.popup-body {
+    flex-grow: 1; /* Agar body mengisi ruang yang tersedia */
+    padding: var(--padding-default) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-children-step-2);
+}
+
+.popup-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-children-step-1);
+}
+
+.popup-input-group label {
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.popup-input-group input {
+    padding: var(--padding-default);
+    border: 1px solid var(--color-dark-gray);
+    border-radius: var(--border-radius-step-3);
+    font-size: 1rem;
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+}
+
+.popup-input-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.popup-footer {
+    padding-top: var(--padding-children-step-3);
+    display: flex;
+    justify-content: flex-end; /* Posisikan tombol Simpan ke kanan */
+}
+
+/* Gaya untuk tombol Simpan (menggunakan .button-acc yang sudah ada) */
+#saveProfileButton {
+    background-color: var(--color-primary); /* Atau warna lain yang Anda inginkan */
+    color: var(--color-white);
+    font-weight: bold;
+    /* Tambahan styling jika diperlukan */
+}
+
+#saveProfileButton:hover {
+    background-color: var(--color-primary-hover-darker);
+}
+
+/* POP UP PASSWORD */
+
+/* Overlay untuk Popup Password (Bisa sama dengan overlay utama, tapi ID beda) */
+#passwordOverlay { /* ID baru */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Ubah Password (Gaya mirip edit-profile-popup, tapi dengan class/ID berbeda) */
+.change-password-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Sesuaikan dengan konten */
+    height: 40%; /* Sesuaikan dengan konten */
+    max-width: 500px; /* Batasan lebar, bisa disesuaikan */
+    max-height: 80vh; /* Batasan tinggi */
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-step-1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none; /* Sembunyikan secara default */
+    flex-direction: column;
+    padding: var(--padding-default);
+    gap: var(--gap-children-step-2-5);
+    overflow-y: auto; /* Sembunyikan scrollbar */
+}
+
+/* Contoh jika Anda ingin gaya tombol Simpan yang berbeda untuk popup password */
+#saveNewPasswordButton {
+    background-color: var(--color-primary); /* Contoh warna berbeda */
+    color: var(--color-white);
+    font-weight: bold;
+    /* Tambahan styling jika diperlukan */
+}
+
+#saveNewPasswordButton:hover {
+    background-color: var(--color-primary-hover-darker); /* Efek hover */
+}
+
 @media (max-width: 768px) {
 
   .container-account-center{
     padding:var(--padding-notop-small);
   }
+
+  .edit-profile-popup {
+        width: 90%; /* Lebih lebar di layar kecil */
+        height: auto; /* Tinggi otomatis */
+        max-height: 80%; /* Batasan tinggi untuk layar kecil */
+  }
+
+  .change-password-popup {
+        width: 90%;
+        height: auto;
+        max-height: 80%;
+    }
 }
