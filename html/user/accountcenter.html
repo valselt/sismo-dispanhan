@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" rel="stylesheet">
 </head>
 <body>
     <header id="navbar-account-center">
@@ -31,17 +32,13 @@
         </div>
         <div class="container-acc-2">
             <div class="placeholder-photoprofile-acc">
-                <img src="https://i.postimg.cc/g2mF41Hj/cangkul11.png"/>
-            </div>
+                <img id="profileImageDisplay" src="https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png" alt="Profile Picture"/> </div>
             <div class="container-photoprofile">
-                <span class="text-3per2 text-bold">Photo Profile</span>
-                <div class="container-button-photoprofile">
-                    <button class="button-acc">
-                        <span class="material-symbols-outlined text-3per4">edit</span>
+                <span class="text-3per2 text-bold" id="usernameDisplayName">Photo Profile</span> <div class="container-button-photoprofile">
+                    <button class="button-acc" id="changePhotoButton"> <span class="material-symbols-outlined text-3per4">edit</span>
                         <span class="text">Change</span>
                     </button>
-                    <button class="button-acc">
-                        <span class="material-symbols-outlined text-3per4">delete</span>
+                    <button class="button-acc" id="deletePhotoButton"> <span class="material-symbols-outlined text-3per4">delete</span>
                         <span class="text">Delete</span>
                     </button>
                 </div>
@@ -120,7 +117,7 @@
                     <span class="material-symbols-outlined">key</span>
                     <span class="text">Ubah Password</span>
                 </button>
-                <button class="danger-zone-button">
+                <button class="danger-zone-button" id="deleteAccountButton">
                     <span class="material-symbols-outlined">delete_forever</span>
                     <span class="text">Hapus Akun JACKMIA</span>
                 </button>
@@ -130,11 +127,12 @@
 
     <div class="overlay" id="overlay"></div>
 
-
-    <!-- POP UP UBAH PROFILE -->
     <div class="edit-profile-popup" id="editProfilePopup">
         <div class="popup-header">
-            <span class="text-2 text-bold">Edit Profil Anda</span>
+            <div class="popup-header-inside">
+                <span class="material-symbols-outlined text-3per4">person_edit</span>
+                <span class="text-3per2 text-bold">Edit Profil Anda</span>
+            </div>
             <button class="close-button" id="closePopupButton">
                 <span class="material-symbols-outlined">close</span>
             </button>
@@ -161,12 +159,14 @@
             <button class="button-acc" id="saveProfileButton">Simpan Perubahan</button>
         </div>
     </div>
+    <div class="overlay" id="passwordOverlay"></div>
 
-    <!-- POP UP UBAH PASSWORD -->
-
-    <div class="overlay" id="passwordOverlay"></div> <div class="change-password-popup" id="changePasswordPopup">
+    <div class="change-password-popup" id="changePasswordPopup">
         <div class="popup-header">
-            <h3>Ubah Password Anda</h3>
+            <div class="popup-header-inside">
+                <span class="material-symbols-outlined">key</span>
+                <span class="text-3per2 text-bold">Ubah Password Anda</span>
+            </div>
             <button class="close-button" id="closePasswordPopupButton">
                 <span class="material-symbols-outlined">close</span>
             </button>
@@ -174,21 +174,91 @@
         <div class="popup-body">
             <div class="popup-input-group">
                 <label for="oldPassword">Password Lama:</label>
-                <input type="password" id="oldPassword" placeholder="Masukkan password lama Anda">
+                    <input type="password" id="oldPassword" class="popup-input-text" placeholder="Masukkan password lama Anda">
             </div>
             <div class="popup-input-group">
                 <label for="newPassword">Password Baru:</label>
-                <input type="password" id="newPassword" placeholder="Masukkan password baru">
+                <input type="password" id="newPassword" class="popup-input-text" placeholder="Masukkan password baru">
             </div>
             <div class="popup-input-group">
                 <label for="confirmNewPassword">Konfirmasi Password Baru:</label>
-                <input type="password" id="confirmNewPassword" placeholder="Konfirmasi password baru">
+                <input type="password" id="confirmNewPassword" class="popup-input-text" placeholder="Konfirmasi password baru">
             </div>
         </div>
         <div class="popup-footer">
             <button class="button-acc" id="saveNewPasswordButton">Simpan Password Baru</button>
         </div>
     </div>
+
+    <div class="overlay" id="deleteAccountOverlay"></div>
+    <div class="delete-account-popup" id="deleteAccountPopup">
+        <div class="popup-header">
+            <div class="popup-header-inside">
+                <span class="material-symbols-outlined">delete_forever</span>
+                <span class="text-3per2 text-bold">Konfirmasi Penghapusan Akun</span>
+            </div>
+            <button class="close-button" id="closeDeleteAccountPopupButton"> <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="popup-body">
+            <p class="text">Apakah Anda yakin ingin menghapus akun JACKMIA Anda? Tindakan ini <strong class="red">tidak dapat dibatalkan</strong>.</p>
+            <p class="text">Semua data terkait akun Anda akan hilang secara permanen.</p>
+        </div>
+        <div class="popup-footer popup-footer-delete">
+            <button class="button-acc cancel-button" id="cancelDeleteAccountButton">Batal</button> <button class="danger-zone-button" id="confirmDeleteAccountButton">Ya, Hapus Akun Saya</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="changePhotoOverlay"></div>
+    <div class="change-photo-popup" id="changePhotoPopup">
+        <div class="popup-header">
+            <div class="popup-header-inside">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="text-3per2 text-bold">Ubah Foto Profil</span>
+            </div>
+            <button class="close-button" id="closeChangePhotoPopupButton">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="popup-body popup-body-photo">
+            <div id="dropArea" class="drop-area">
+                <p>Drag & Drop foto di sini atau</p>
+                <input type="file" id="photoInput" accept="image/jpeg, image/png" style="display: none;">
+                <button class="button-acc" id="selectPhotoButton">Pilih Foto</button>
+            </div>
+            <div class="image-preview-container" style="display: none;">
+                <img id="imageForCropping" src="" alt="Image to crop">
+            </div>
+        </div>
+        <div class="popup-footer popup-footer-photo">
+            <button class="button-acc cancel-button" id="cancelCropButton" style="display: none;">Batal</button>
+            <button class="button-acc" id="cropAndUploadButton" style="display: none;">Crop & Unggah</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="deletePhotoOverlay"></div>
+    <div class="delete-photo-popup" id="deletePhotoPopup">
+        <div class="popup-header">
+            <div class="popup-header-inside">
+                <span class="material-symbols-outlined">delete</span>
+                <span class="text-3per2 text-bold">Hapus Foto Profil</span>
+            </div>
+            <button class="close-button" id="closeDeletePhotoPopupButton">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="popup-body">
+            <p class="text">Apakah Anda yakin ingin menghapus foto profil Anda? Ini akan diganti dengan foto profil default.</p>
+        </div>
+        <div class="popup-footer popup-footer-delete">
+            <button class="button-acc cancel-button" id="cancelDeletePhotoConfirmButton">Batal</button>
+            <button class="danger-zone-button" id="confirmDeletePhotoButton">Ya, Hapus</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
     <script src="../../javascript/account-center.js"></script>
+    <script src="../../javascript/photoprofile.js"></script>
 </body>
 </html>

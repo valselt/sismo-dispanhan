@@ -12,8 +12,8 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 
 try {
-    // Tambahkan 'email' dan 'number' ke SELECT statement
-    $stmt = $conn->prepare("SELECT role, fullname, username, email, number, password FROM tbl_users WHERE username = ?");
+    // Tambahkan 'path_pp' ke SELECT statement
+    $stmt = $conn->prepare("SELECT role, fullname, username, email, number, password, path_pp FROM tbl_users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -29,9 +29,10 @@ try {
                 'role' => $role_text,
                 'fullname' => $user_data['fullname'],
                 'username' => $user_data['username'],
-                'email' => $user_data['email'],   // Tambahkan email
-                'number' => $user_data['number'], // Tambahkan number
-                'password_display' => '********'
+                'email' => $user_data['email'],
+                'number' => $user_data['number'],
+                'password_display' => '********',
+                'path_pp' => $user_data['path_pp'] // Tambahkan path_pp ke respons
             ]
         ];
         echo json_encode($response_data);

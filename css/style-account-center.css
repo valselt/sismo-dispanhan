@@ -288,11 +288,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-bottom: var(--padding-children-step-3);
+
+    
 }
 
-.popup-header h3 {
-    margin: 0;
-    color: var(--color-black);
+.popup-header-inside{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap:var(--gap-children-step-3);
 }
 
 .close-button {
@@ -339,18 +344,30 @@ body {
 }
 
 .popup-input-group input {
-    padding: var(--padding-default);
-    border: 1px solid var(--color-dark-gray);
-    border-radius: var(--border-radius-step-3);
-    font-size: 1rem;
-    background-color: var(--color-light-gray);
-    color: var(--color-black);
+    /* Properti dari .input-lr dan .popup-input-group input digabungkan */
+    background-color: transparent; /* Dari .input-lr */
+    width: 100%; /* Sudah ada atau efektif di sana */
+    padding: 15px 12px; /* Dari .input-lr, sedikit lebih besar vertikal */
+    border: 1px solid var(--color-light-gray); /* Dari .input-lr, warna border juga berubah */
+    border-radius: var(--border-radius-step-2); /* Dari .input-lr, radius sedikit lebih kecil */
+    font-size: 16px; /* Dari .input-lr */
+    box-sizing: border-box; /* Good practice, memastikan padding tidak menambah lebar */
+    transition: var(--transition-cubic-bezier-faster); /* Dari .input-lr */
+    color: var(--color-black); /* Tetap hitam untuk teks default */
+
+    transition:var(--transition-cubic-bezier-faster);
+
 }
 
+
+
 .popup-input-group input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+    /* Properti dari .input-lr:focus digabungkan */
+    background-color: var(--color-secondary); /* Dari .input-lr:focus */
+    color: var(--color-white); /* Dari .input-lr:focus */
+    outline: none; /* Sudah ada */
+    border-color: var(--color-primary); /* Sudah ada */
+    box-shadow: 0 1px 1px rgba(26, 115, 232, .075), 0 0 8px rgba(26, 115, 232, .2); /* Dari .input-lr:focus, shadow lebih spesifik */
 }
 
 .popup-footer {
@@ -422,6 +439,197 @@ body {
     background-color: var(--color-primary-hover-darker); /* Efek hover */
 }
 
+.password-mismatch-focus {
+    background-color: var(--color-red) !important; /* !important agar override inline style atau style lain */
+    color: var(--color-white) !important;
+}
+
+/* POP UP HAPUS AKUN */
+
+/* Overlay untuk Popup Hapus Akun (Mirip dengan overlay lainnya) */
+#deleteAccountOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none; /* Sembunyikan secara default */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Hapus Akun (Gaya mirip popup lainnya) */
+.delete-account-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Lebih kecil karena hanya konfirmasi */
+    max-width: 450px; /* Batasan lebar maksimum */
+    height: auto; /* Tinggi otomatis sesuai konten */
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-step-1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none; /* Sembunyikan secara default */
+    flex-direction: column;
+    padding: var(--padding-default);
+    gap: var(--gap-children-step-2-5);
+    overflow-y: auto;
+}
+
+/* Penyesuaian footer untuk tombol hapus agar sejajar */
+.popup-footer-delete {
+    display: flex;
+    justify-content: space-between; /* Untuk menempatkan tombol Batal dan Hapus terpisah */
+    gap: var(--gap-children-step-2); /* Jarak antar tombol */
+    margin-top: 15px; /* Sedikit jarak dari teks konfirmasi */
+}
+
+/* Gaya untuk tombol Batal di popup */
+.cancel-button {
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+    font-weight: bold;
+    border: 1px solid var(--color-black);
+    transition: var(--transition);
+}
+
+.cancel-button:hover {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    transform: var(--transform-scale-smaller);
+}
+
+/* POP UP CHANGE PHOTO PROFILE */
+#changePhotoOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.change-photo-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Lebih lebar untuk area cropping */
+    max-width: 700px;
+    height: auto;
+    max-height: 90vh; /* Agar bisa scroll di layar kecil */
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-step-1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    padding: var(--padding-default);
+    gap: var(--gap-children-step-2-5);
+    overflow-y: auto;
+}
+
+.popup-body-photo {
+    padding: var(--padding-default) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pusatkan konten */
+    gap: var(--gap-children);
+}
+
+/* Drop Area for Drag and Drop */
+.drop-area {
+    border: 2px dashed var(--color-dark-gray);
+    border-radius: var(--border-radius-step-2);
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-children-step-2);
+}
+
+.drop-area.highlight {
+    background-color: var(--color-tertiary-hover);
+    border-color: var(--color-primary);
+}
+
+/* Image preview and Cropper container */
+.image-preview-container {
+    max-width: 100%;
+    max-height: 400px; /* Batasi tinggi untuk cropper */
+    overflow: hidden; /* Penting untuk cropper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-preview-container img {
+    max-width: 100%; /* Agar gambar tidak melebihi container */
+    display: block; /* Hindari whitespace di bawah gambar */
+}
+
+.popup-footer-photo {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap-children-step-2);
+    margin-top: 15px;
+}
+
+/* POP UP DELETE PHOTO PROFILE */
+#deletePhotoOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none; /* Sembunyikan secara default, JS akan mengubah ini */
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-photo-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Lebih kecil dari popup ganti foto */
+    max-width: 450px;
+    height: auto;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-step-1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none; /* Sembunyikan secara default, JS akan mengubah ini */
+    flex-direction: column;
+    padding: var(--padding-default);
+    gap: var(--gap-children-step-2-5);
+    overflow-y: auto;
+}
+
+
+
 @media (max-width: 768px) {
 
   .container-account-center{
@@ -438,5 +646,25 @@ body {
         width: 90%;
         height: auto;
         max-height: 80%;
+    }
+
+    .delete-account-popup {
+        width: 90%; /* Lebih lebar di layar kecil */
+    }
+    .popup-footer-delete {
+        flex-direction: column-reverse;
+    }
+
+    .change-photo-popup {
+        width: 95%; /* Lebih lebar di layar kecil */
+        height: auto;
+        max-height: 90vh;
+    }
+    .popup-footer-photo {
+        flex-direction: column-reverse; /* Tumpuk tombol di layar kecil */
+    }
+
+    .delete-photo-popup {
+        width: 90%; /* Lebih lebar di layar kecil */
     }
 }
