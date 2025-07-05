@@ -1,0 +1,84 @@
+/*
+ * File: gen-ai.css
+ * Deskripsi: CSS untuk menata komponen AI Generated,
+ * termasuk kontainer respons dan animasi loading.
+ */
+
+/* Mengatur kontainer utama agar menjadi acuan posisi */
+.container-aigen-response {
+    position: relative; /* Ini adalah kunci agar posisi absolute di dalamnya bekerja */
+    min-height: 50px;   /* Memberi tinggi minimal agar wadah tidak 'collapse' saat kosong */
+}
+
+/* Wadah untuk titik-titik loading, diposisikan di pojok kiri atas */
+.loading-dots-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Gaya untuk setiap titik loading */
+.loading-dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #333; /* Warna titik */
+    border-radius: 50%;     /* Membuatnya menjadi lingkaran sempurna */
+    margin: 0 1px;          /* Memberi sedikit jarak antar titik */
+
+    /* Mengatur properti animasi umum */
+    animation-duration: 2s; /* Durasi total untuk satu siklus penuh */
+    animation-iteration-count: infinite;
+    opacity: 0; /* Mulai dalam keadaan mati */
+}
+
+/* Terapkan animasi spesifik untuk setiap titik */
+.loading-dot:nth-child(1) {
+    animation-name: dot1-anim;
+}
+
+.loading-dot:nth-child(2) {
+    animation-name: dot2-anim;
+}
+
+.loading-dot:nth-child(3) {
+    animation-name: dot3-anim;
+}
+
+/* ===== DEFINISI ANIMASI BARU ===== */
+
+/* Animasi untuk Titik Pertama */
+@keyframes dot1-anim {
+    0%, 74.9% {
+        opacity: 1; /* Nyala selama 3 dari 4 langkah */
+    }
+    75%, 100% {
+        opacity: 0; /* Mati di langkah terakhir */
+    }
+}
+
+/* Animasi untuk Titik Kedua */
+@keyframes dot2-anim {
+    0%, 24.9% {
+        opacity: 0; /* Mati di langkah pertama */
+    }
+    25%, 74.9% {
+        opacity: 1; /* Nyala di langkah kedua dan ketiga */
+    }
+    75%, 100% {
+        opacity: 0; /* Mati di langkah terakhir */
+    }
+}
+
+/* Animasi untuk Titik Ketiga */
+@keyframes dot3-anim {
+    0%, 49.9% {
+        opacity: 0; /* Mati di langkah pertama dan kedua */
+    }
+    50%, 74.9% {
+        opacity: 1; /* Nyala di langkah ketiga */
+    }
+    75%, 100% {
+        opacity: 0; /* Mati di langkah terakhir */
+    }
+}

@@ -461,11 +461,37 @@ select.dropdown-2-2-2:focus option:first-child {
   
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: var(--padding-default);
-  gap: var(--gap-children-step-2);
 
   border-radius: var(--border-radius-step-3);
+}
+
+.aigen-inside{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--gap-children-step-2);
+}
+
+.button-generate-aigen-response{
+  background-color: var(--color-white);
+  padding: var(--padding-side-button);
+
+  outline: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+
+
+  border-radius: var(--border-radius-step-4);
+
+  transition: var(--transition-cubic-bezier);
+}
+
+.button-generate-aigen-response:hover{
+  transform: var(--transform-scale);
 }
 
 .container-aigen-response{
@@ -474,6 +500,9 @@ select.dropdown-2-2-2:focus option:first-child {
   border-radius: var(--border-radius-step-2);
   padding: var(--padding-default);
   color: #333333;
+
+  max-height: 312px;
+  overflow-y: auto;
 
 }
 

@@ -3,3 +3,5 @@ https://www.gispedia.com/2016/06/download-shp-indonesia-level-kota-kabupaten.htm
 https://qgis.org
 https://github.com/eppofahmi/geojson-indonesia/blob/master/kota/all_kabkota_ind.geojson
 https://youtu.be/op-ST-uFSvE?si=-iF9Wq0GPFSr25q_
+
+https://youtu.be/NWELdFbQARw?si=lKDBkfucxYjC861L

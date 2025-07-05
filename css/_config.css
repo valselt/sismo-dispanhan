@@ -20,6 +20,7 @@
   --padding-notop-small:0px 10px;
   --padding-noside: 15px 0px;
   --padding-bottom: 0px 0px 15px 0px;
+  --padding-version: 5px;
 
   --padding-lr: 5rem 2rem;
   --padding-lr-phone: 5rem 2rem;
@@ -46,6 +47,8 @@
   --border-radius-step-1: 30px;
   --border-radius-step-2: 20px;
   --border-radius-step-3: 15px;
+  --border-radius-step-4:10px;
+  --border-radius-step-5:5px;
   --border-radius-lr: 40px;
 
   --border-radius-navbar:20px;
@@ -102,6 +105,10 @@
 
 .text-3per2{
   font-size: 1.5rem;
+}
+
+.text-point6{
+  font-size: 0.6rem;
 }
 .text-2 {
   font-size: 2rem;
@@ -210,4 +217,13 @@
 
 .text-right {
   text-align: right;
+}
+
+@media (max-width: 768px) {
+
+  :root {
+    --gap-container: 7rem; 
+  }
+
+  
 }

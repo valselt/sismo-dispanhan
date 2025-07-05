@@ -1,0 +1,115 @@
+@import '_config.css';
+
+/* Wrapper utama untuk dropdown kustom */
+.custom-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Tombol utama yang terlihat */
+.custom-dropdown-button {
+    background-color: var(--color-white);
+    padding: var(--padding-side-button);
+
+    outline: none;
+    border: none;
+    box-shadow: none;
+
+    border-radius: var(--border-radius-step-4);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+#selected-item-content {
+    display: flex;         
+    align-items: center;   
+    gap:var(--gap-children-step-2-5);
+    width: 100%;          
+}
+
+/* Panel yang berisi pilihan-pilihan */
+.custom-dropdown-panel {
+    display: none; /* Sembunyikan secara default */
+    position: absolute;
+    background-color: var(--color-white);
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: var(--border-radius-step-4);
+    overflow: hidden;
+}
+
+/* Setiap item di dalam panel */
+.custom-dropdown-item {
+    color: var(--color-black);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+}
+
+.custom-dropdown-item:hover {
+    background-color: var(--color-tertiary-hover);
+}
+
+.ai-dropdown-things{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:var(--gap-children-step-2-5);
+}
+
+.title-ai{
+    display: flex;
+    align-items: center;
+
+    gap:var(--gap-children-step-3);
+}
+
+.title-ai img{
+    height: 20px;
+    width: auto;
+
+    border-radius: 50%;
+}
+
+.version-text{
+    background-color: var(--color-primary);
+    color:var(--color-white);
+    display: flex;
+    padding:var(--padding-version);
+    font-family: "Fira Mono", monospace;
+    font-weight: 400;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--border-radius-step-5);
+}
+
+/* Kelas untuk menampilkan panel */
+.custom-dropdown-panel.show {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .ai-left{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+    }
+    .custom-dropdown-button{
+        width:150px;
+    }
+  
+}
