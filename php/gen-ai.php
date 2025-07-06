@@ -49,17 +49,15 @@ if ($action === 'get_data_for_ai') {
 if ($action === 'get_ai_summary') {
     // === BAGIAN YANG DIPERBARUI SESUAI "OLLAMA LIST" ANDA ===
     $modelMap = [
-        'cogito' => 'cogito:3b',
         'phi-4-mini-reasoning' => 'phi4-mini-reasoning:3.8b',
         'mistrallite' => 'mistrallite:7b',
         'nemotron-mini' => 'nemotron-mini:4b',
-        'tinyllama' => 'tinyllama:1.1b',
-        'smollm2' => 'smollm2:1.7b',
         'granite-3-3' => 'granite3.3:2b',
         'gemma-3' => 'gemma3:4b',
         'qwen-3' => 'qwen3:4b',
         'llama-3-2' => 'llama3.2:3b',
-        'deepseek-r1' => 'deepseek-r1:1.5b'
+        'deepseek-r1' => 'deepseek-r1:1.5b',
+        'gemma-3n' => 'gemma3n:e2b'
     ];
     // =======================================================
 
@@ -72,13 +70,13 @@ if ($action === 'get_ai_summary') {
         exit;
     }
 
-    $prompt = "Saya mempunyai data seperti dibawah ini\n{Tahun, Tanaman, Tipe, Satuan, Bulan, Daerah, Total}\n\n";
+    $prompt = "Anda Merupakan Seorang Data Scientist. Anda diberikan data tabular dengan kolom berikut: Tahun, Tanaman, Tipe, Satuan, Bulan, Daerah, dan Total. Data ini disajikan dalam format baris per baris.\n\n";
     $count = 1;
     foreach ($dataFromDb as $row) {
         $prompt .= "Data Ke-{$count} :{" . implode(',', $row) . "}\n";
         $count++;
     }
-    $prompt .= "\nDari data diatas, buat Kesimpulan yang anda dapatkan dalam format paragraf. Gunakan Bahasa Indonesia.";
+    $prompt .= "\nBerdasarkan data di atas, analisis secara internal untuk mengidentifikasi temuan utama, tren, atau pola. Kemudian, **sajikan hanya kesimpulan akhir Anda dalam satu atau beberapa paragraf yang komprehensif sebagaimana Data Scientist bekerja. Jangan tampilkan langkah-langkah pemikiran, penalaran, atau proses analisis Anda.** Gunakan Bahasa Indonesia yang lugas dan mudah dimengerti. Maksmimal 3 Paragraf";
     
     $ollamaPayload = json_encode([
         'model' => $ollamaModel,

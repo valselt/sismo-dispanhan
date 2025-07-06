@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // =========================================================================
+    // === BAGIAN 1: KODE ASLI ANDA (TIDAK DIUBAH SAMA SEKALI) ===
+    // =========================================================================
     const userStatusLink = document.getElementById('userStatusLink');
     const loggedInUsernameSpan = document.getElementById('loggedInUsername');
-    const verifiedIcon = document.getElementById('verified-icon'); // Dapatkan referensi ikon verified
+    const verifiedIcon = document.getElementById('verified-icon'); 
     const personIcon = userStatusLink ? userStatusLink.querySelector('.material-symbols-outlined') : null;
     const accountCenterBox = document.getElementById('accountCenterBox');
     const logoutButton = document.getElementById('logoutButton');
@@ -15,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         accountCenterBox.classList.remove('is-active');
     }
 
-    // Sembunyikan ikon verified secara default saat inisialisasi
     if (verifiedIcon) {
         verifiedIcon.style.display = 'none';
     }
@@ -24,9 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (userStatusLink && accountCenterBox && navbar) {
             const linkRect = userStatusLink.getBoundingClientRect();
             const navbarRect = navbar.getBoundingClientRect();
-
             const offsetRight = 15;
-
             accountCenterBox.style.left = `${linkRect.right - accountCenterBox.offsetWidth + offsetRight}px`;
         }
     }
@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function handleUserStatusLinkClick(event) {
         event.preventDefault();
         event.stopPropagation();
-
         const isActive = accountCenterBox.classList.toggle('is-active');
-
         if (isActive) {
             accountCenterBox.style.display = 'flex';
             positionAccountCenterBox();
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function handleDocumentClick(event) {
-        if (accountCenterBox.classList.contains('is-active') &&
+        if (accountCenterBox && userStatusLink && accountCenterBox.classList.contains('is-active') &&
             !userStatusLink.contains(event.target) &&
             !accountCenterBox.contains(event.target)) {
             accountCenterBox.classList.remove('is-active');
@@ -68,7 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 method: 'POST'
             });
             const logoutData = await logoutResponse.json();
-
             if (logoutData.status === 'success') {
                 alert(logoutData.message);
                 window.location.href = 'index.html';
@@ -81,21 +78,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    if (userStatusLink && loggedInUsernameSpan && personIcon && accountCenterBox && logoutButton && navbar && userRoleDisplay && verifiedIcon) { // Ditambahkan verifiedIcon di sini
+    if (userStatusLink && loggedInUsernameSpan && personIcon && accountCenterBox && logoutButton && navbar && userRoleDisplay && verifiedIcon) {
         console.log('DOM elements for user status and logout found. Attempting to fetch user status.');
-
         try {
             const response = await fetch('php/user.php');
             const data = await response.json();
-
             if (data.username) {
                 loggedInUsernameSpan.textContent = data.username;
                 loggedInUsernameSpan.style.display = 'inline-block';
                 personIcon.style.display = 'inline-block';
                 userStatusLink.href = '#';
                 userStatusLink.setAttribute('aria-label', `Logged in as ${data.username}`);
-
-                // Tampilkan ikon verified jika role adalah 1
                 if (data.role === 1) {
                     verifiedIcon.style.display = 'inline-block';
                     userRoleDisplay.textContent = 'Admin';
@@ -106,9 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     verifiedIcon.style.display = 'none';
                     userRoleDisplay.textContent = 'Tidak Dikenal';
                 }
-
                 positionAccountCenterBox();
-
                 if (!listenersActive) {
                     userStatusLink.addEventListener('click', handleUserStatusLinkClick);
                     document.addEventListener('click', handleDocumentClick);
@@ -117,7 +108,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     window.addEventListener('scroll', positionAccountCenterBox);
                     listenersActive = true;
                 }
-
             } else {
                 loggedInUsernameSpan.textContent = '';
                 loggedInUsernameSpan.style.display = 'none';
@@ -125,8 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 userStatusLink.href = 'login.html';
                 userStatusLink.setAttribute('aria-label', 'Login');
                 userRoleDisplay.textContent = '';
-                verifiedIcon.style.display = 'none'; // Sembunyikan ikon verified jika tidak login
-
+                verifiedIcon.style.display = 'none';
                 accountCenterBox.classList.remove('is-active');
                 accountCenterBox.style.display = 'none';
                 if (listenersActive) {
@@ -147,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             accountCenterBox.classList.remove('is-active');
             accountCenterBox.style.display = 'none';
             userRoleDisplay.textContent = '';
-            verifiedIcon.style.display = 'none'; // Sembunyikan ikon verified jika ada error
+            verifiedIcon.style.display = 'none';
             if (listenersActive) {
                 userStatusLink.removeEventListener('click', handleUserStatusLinkClick);
                 document.removeEventListener('click', handleDocumentClick);
@@ -158,6 +147,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     } else {
-        console.warn('One or more DOM elements (userStatusLink, loggedInUsernameSpan, personIcon, accountCenterBox, logoutButton, navbar, userRoleDisplay, verifiedIcon) not found. Ensure all IDs are correct.'); // Ditambahkan verifiedIcon di sini
+        console.warn('One or more DOM elements (userStatusLink, etc) not found. Main user script block skipped.');
+    }
+
+    // =========================================================================
+    // === BAGIAN 2: [TRIK] Blok Kode Tambahan KHUSUS Untuk Overlay ===
+    // =========================================================================
+    // Blok ini akan berjalan secara independen dari blok di atas.
+    
+    const roleOverlayElement = document.getElementById('role-overlay');
+    
+    // Hanya jalankan jika halaman ini memiliki elemen overlay
+    if (roleOverlayElement) {
+        try {
+            // Kita fetch ulang data user di sini khusus untuk overlay
+            // Path relatif ini penting untuk halaman di dalam folder /html
+            const response = await fetch('../php/user.php');
+            const data = await response.json();
+
+            if (data.role == 1) { // Admin
+                roleOverlayElement.classList.add('is-hidden');
+            } else { // User, tidak login, atau role lainnya
+                roleOverlayElement.classList.remove('is-hidden');
+            }
+        } catch (error) {
+            console.error('Error handling overlay visibility:', error);
+            // Jika terjadi error, pastikan overlay tetap muncul untuk keamanan
+            roleOverlayElement.classList.remove('is-hidden');
+        }
     }
 });

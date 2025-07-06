@@ -1,0 +1,414 @@
+@import '_config.css';
+
+
+#navbar-analisis{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  transition: var(--transition);
+
+}
+
+/* -----------------------------------------------------analisis.html----------------------------------------------------- */
+
+/* NAVBAR */
+
+.container-navbar-analisis {
+  background-color: rgba(48, 48, 48, 0.5);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+
+  padding: var(--padding-default);
+  border-radius: 20px;
+  transition: var(--transition-cubic-bezier); 
+}
+
+.button-navbar-analisis{
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--padding-noside);
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+  height: 100%;
+
+  overflow: hidden;
+  max-width: 0; 
+  opacity: 0;   
+  margin: 0;  
+
+  transition: var(--transition-cubic-bezier);
+  
+}
+
+.text-button-navbar-analisis{
+color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  transition: var(--transition);
+}
+
+.logo-navbar-analisis{
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.wrapper-1-analisis{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-2-analisis{
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.wrapper-2-analisis{
+  background-color: aqua;
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--gap-children);
+}
+
+.container-tabel-analisis{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius-step-1);
+    padding: var(--padding-default);
+    gap:var(--gap-children-step-3)
+}
+
+.tabel-header {
+    display: flex;
+    justify-content: space-between; /* Mendorong item ke sisi berlawanan */
+    align-items: center;
+}
+
+.tombol-tabel{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tombol-tabel-add{
+    display: flex;
+    align-items: center;
+
+    
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--padding-default);
+    border-radius: var(--border-radius-step-2);
+
+    border: none;
+
+}
+
+.tabel-kontrol {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antar elemen */
+}
+
+.tabel-kontrol label {
+    font-size: 0.9em;
+    color: #343a40;
+}
+
+#rows-per-page {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-family: 'Manrope', sans-serif;
+}
+
+#tabel-info {
+    margin-left: 15px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.tabel-analisis-harga{
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Footer Tabel untuk tombol pagination */
+.tabel-footer {
+    display: flex;
+    justify-content: flex-end; /* Posisikan di kanan */
+    align-items: center;
+    margin-top: 1rem; /* Jarak dari tabel di atasnya */
+    gap: 10px;
+}
+
+#page-number {
+    font-size: 0.9em;
+    color: #343a40;
+}
+
+.btn-halaman {
+    padding: 8px 16px;
+    border: 1px solid #ced4da;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    transition: background-color 0.2s;
+}
+
+.btn-halaman:hover:not(:disabled) {
+    background-color: #f1f3f5;
+}
+
+.btn-halaman:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* Tabel Styling Modern dengan Garis Pemisah */
+.tabel-data {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    width: 100%;
+    border-collapse: collapse; /* Menyatukan border agar rapi */
+    margin-top: 1em;
+    font-size: 0.9rem;
+    min-width: 700px;
+
+    border-radius: var(--border-radius-step-1); 
+    overflow: hidden; /* Memastikan isinya juga terpotong */
+}
+
+.tabel-data th, .tabel-data td {
+    padding: 12px 15px;
+    text-align: left;
+    /* Menambahkan garis pemisah bawah untuk setiap baris */
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.tabel-data th {
+    background-color: var(--color-white-darker);
+    font-weight: 600;
+    color: var(--color-black);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    /* Garis pemisah bawah header dibuat lebih tebal */
+    border-bottom-width: 2px;
+}
+
+/* Menambahkan garis pemisah vertikal untuk setiap kolom */
+.tabel-data td, .tabel-data th {
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Menghilangkan garis pemisah vertikal di kolom terakhir agar rapi */
+.tabel-data td:last-child, .tabel-data th:last-child {
+    border-right: none;
+}
+
+
+
+.container-navbar-analisis:hover .button-navbar-analisis {
+    max-width:10rem;
+    opacity: 1;
+    margin: var(--margin-right-small); 
+    
+    padding: var(--padding-default);
+
+    transition: var(--transition-cubic-bezier); 
+}
+
+.container-analisis{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  gap: var(--gap-container);
+}
+
+.container-1-analisis{
+  height: 100vh;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image:var(--bg-hero-analisis);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* FORM TAMBAH DATA */
+
+/* Styling untuk Form Tambah Data */
+.form-container {
+  padding: 1.5rem;
+  border-radius: var(--border-radius-step-1); 
+  margin-bottom: 1rem;
+  background-color: #f8f9fa;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.form-group-full {
+  grid-column: span 4; /* Grup ini akan memakan 4 kolom */
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #343a40;
+}
+
+.form-group select,
+.form-group input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  font-family: 'Manrope', sans-serif;
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+
+.submit-table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-inside-lr);
+
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: var(--border-radius-step-1);
+
+  transition: var(--transition-cubic-bezier-faster);
+}
+
+.submit-table:hover{
+  background-color: var(--color-tertiary);
+}
+
+.btn-aksi{
+  border:none;
+  color: var(--color-black);
+  padding: var(--padding-inside-tabel);
+  border-radius: var(--border-radius-step-3);
+  transition: var(--transition-cubic-bezier-faster);
+}
+
+.btn-edit{
+  margin: 0 2px;
+}
+
+.btn-edit:hover{
+  background-color:var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-delete:hover{
+  background-color: var(--color-red-darker);
+  color: var(--color-white);
+}
+
+/* --- CSS UNTUK ROLE OVERLAY --- */
+
+/* Atur container utama agar bisa diposisikan secara relatif */
+.container-2-analisis {
+  position: relative;
+}
+
+.role-overlay {
+  position: absolute; /* Membuat overlay mengambang di atas konten lain */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Pastikan overlay ada di lapisan paling atas */
+  
+  /* Efek blur dan latar semi-transparan */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+
+  /* Atur agar konten di tengah */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.overlay-content .material-symbols-outlined {
+  font-size: 64px; /* Perbesar ukuran ikon */
+  margin-bottom: 16px;
+}
+
+/* Class Helper untuk menyembunyikan elemen secara paksa */
+.is-hidden {
+  display: none !important;
+}
+
+
+@media (max-width: 768px) {
+  #navbar.shrink{
+  max-width: 90%;
+  margin: 0px auto;
+  transition: var(--transition);
+
+  }
+}
