@@ -71,10 +71,125 @@ color: var(--color-white);
   display: block;
 }
 
-.wrapper-1-analisis{
+.container-analisis{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  gap: var(--gap-container);
+}
+
+.container-1-analisis{
+  height: 100vh;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image:var(--bg-hero-analisis);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--padding-default);
+}
+
+.wrapper-analisis{
+  background-color: aqua;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--gap-children);
 }
+
+.inside-wrapper-1-2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-children-step-3);
+}
+
+.inside-wrapper-1-4 {
+    background-color: rgb(255, 251, 0);
+    border-radius: var(--border-radius-step-1);
+
+    display: none; 
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding:var(--padding-default);
+    
+
+    /* Perubahan yang diminta */
+    
+}
+
+.container-hasil-analisis {
+    width: 500px;
+    max-width: 500px;
+    
+    border-radius: var(--border-radius-step-1); /* Memberi jarak atas/bawah dan menengahkan */
+
+    height: 500px;
+    max-height: 500px;
+    overflow-y: auto; /* Memunculkan scroll vertikal jika perlu */
+    
+    /* Tambahan agar terlihat rapi */
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Opsional: memastikan gambar di dalam hasil analisis tidak meluap */
+.container-hasil-analisis img.hasil-plot {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dropdown-analisis {
+  background-color: var(--color-light-gray);
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+  border: none;
+
+  background-image: linear-gradient(45deg, transparent 50%, black 50%),
+                    linear-gradient(135deg, black 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 5px),
+                       calc(100% - 15px) calc(50% - 5px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+select.dropdown-analisis{
+  font-family: 'Manrope', sans-serif;
+}
+
+select.dropdown-analisis:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #666;
+}
+
+select.dropdown-analisis:focus option:first-child {
+    display: none;
+}
+
 
 .container-2-analisis{
     padding: 50px;
@@ -244,28 +359,7 @@ color: var(--color-white);
     transition: var(--transition-cubic-bezier); 
 }
 
-.container-analisis{
-  display: flex;
-  flex-direction: column;
-  position: relative;
 
-  gap: var(--gap-container);
-}
-
-.container-1-analisis{
-  height: 100vh;
-
-  margin: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-image:var(--bg-hero-analisis);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 /* FORM TAMBAH DATA */
 
 /* Styling untuk Form Tambah Data */
