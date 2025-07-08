@@ -10,7 +10,7 @@
   <li>
     <strong>Download & Install Docker Dekstop</strong><br/>
     <a href="https://www.docker.com/products/docker-desktop/">
-      <img src="https://i.postimg.cc/vZmNGz0w/docker-download.png" alt="Docker Dekstop" style="height: 1.5em; vertical-align: middle;">
+      <img src="https://i.postimg.cc/vZmNGz0w/docker-download.png" alt="Docker Dekstop" style="height: 2.5em; vertical-align: middle;">
     </a>
   </li>
   <li>
