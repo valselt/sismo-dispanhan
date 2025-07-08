@@ -1,7 +1,14 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <h1 align="center">📊 Sistem Monitoring DISPANHAN</h1>
 
-<p align="center">Panduan lengkap <strong>step-by-step</strong> untuk menjalankan Sistem Monitoring DISPANHAN berbasis <strong>PHP, MySQL, dan Flask (Python) Menggunakan Docker</strong>.</p>
+<p>Aplikasi Berbasis Website Untuk Melakukan Monitoring terhadap Kestabilan dan Stabilisasi Pangan Di Jawa Tengah dengan mengimplementasikan Machine Learning ke Dalamnya.</p>
 
+<img src="https://i.postimg.cc/zDWRtHYC/tampilan1.png">
+<img src="https://i.postimg.cc/26LBfVbf/tampilan2.png">
+<img src="https://i.postimg.cc/Gtk8HVx7/tampilan3.png">
+<img src="https://i.postimg.cc/m2s10ZT0/tampilan4.png">
+<img src="https://i.postimg.cc/RhrJC4KJ/tampilan5.png">
 
 <div align="center">
   <img src="https://img.shields.io/badge/Docker-%232496ED?style=for-the-badge&logo=docker&logoColor=white">
@@ -20,29 +27,38 @@
 
 <hr/>
 
-<h2><img src="https://skillicons.dev/icons?i=docker" alt="Docker Icon" style="height: 1.5em; vertical-align: middle; margin-right: 8px;"> Persiapan Awal</h2>
+<h2 style="vertical-align: middle;">
+  <span class="material-symbols-outlined" style="height: 1.5em; vertical-align: middle; margin-right: 8px;">downloading</span>
+  Installasi
+</h2>
 
 <ol>
   <li>
-    <strong>Download & Install Docker Dekstop</strong><br/>
+    <strong>Download & Install Docker Dekstop</strong><br/><br/>
     <a href="https://www.docker.com/products/docker-desktop/">
       <img src="https://i.postimg.cc/vZmNGz0w/docker-download.png" alt="Docker Dekstop" style="height: 2.5em; vertical-align: middle;">
     </a>
+    <br/>
+    <br/>
   </li>
   <li>
     <strong>Git Pull Project ini</strong>
+    <br/>
   </li>
   <li>
     Buka <strong>Terminal</strong>, lalu cd ke direktori anda melakukan Git Pull.<br/>
     <pre><code>cd ../{nama-direktori-anda}</code></pre>
+    <br/>
   </li>
   <li>Setelah Terminal berada di direktori anda, jalankan kode ini<br/>
     <pre><code>docker-compose up -d</code></pre>
+    <br/>
   </li>
   <li>Tunggu sampai progress pembuatan Container selesai pada Terminal, lalu <strong>Buka Docker Dekstop</strong>
+  <br/>
   </li>
   <li>Pergi Ke <code>Container</code> -> <code>{nama-direktori-anda}</code> -> <code>ollama</code> -> <code>Logs</code>.<br/>
-  Tunggu hingga Ollama selesai men-download Model yang anda inginkan
+  Tunggu hingga Ollama selesai men-download Model yang anda inginkan<br/>
   </li>
 </ol>
 
