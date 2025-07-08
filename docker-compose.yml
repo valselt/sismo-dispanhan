@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: . # Konteks build adalah folder COBA_DOCKER itu sendiri
+      dockerfile: Dockerfile.web # Menggunakan Dockerfile.web yang baru
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: db_dispanhan
+      DB_USER: admin-dispanhan
+      DB_PASSWORD: admin12345
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin12345
+      MYSQL_DATABASE: db_dispanhan
+      MYSQL_USER: admin-dispanhan
+      MYSQL_PASSWORD: admin12345
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./data/db_dispanhan.sql:/docker-entrypoint-initdb.d/init.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: admin12345
+    depends_on:
+      - db
+
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development
+      DATABASE_URL: mysql+mysqlconnector://admin-dispanhan:admin12345@db/db_dispanhan
+    depends_on:
+      - db
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+      - ./ollama-model.sh:/usr/local/bin/ollama-model.sh
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    # === MULAI PERUBAHAN DI SINI ===
+    entrypoint: ["/bin/sh", "-c"] # Tambahkan baris ini
+    command: ["/usr/local/bin/ollama-model.sh"] # Ubah baris command ini
+    # === AKHIR PERUBAHAN DI SINI ===
+
+volumes:
+  db_data:
+  ollama_data:

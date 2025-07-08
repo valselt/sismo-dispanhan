@@ -1,0 +1,9 @@
+# Dockerfile.web
+FROM php:8.2-apache
+
+# Install mysqli dan pdo_mysql (pdo_mysql juga sering berguna)
+# docker-php-ext-install adalah script bawaan di image PHP Docker
+RUN docker-php-ext-install mysqli pdo_mysql
+
+# Mengaktifkan ekstensi mysqli untuk PHP (kadang diperlukan secara eksplisit)
+RUN docker-php-ext-enable mysqli

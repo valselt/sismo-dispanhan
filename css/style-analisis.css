@@ -96,7 +96,6 @@ color: var(--color-white);
 }
 
 .wrapper-analisis{
-  background-color: aqua;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -111,7 +110,6 @@ color: var(--color-white);
 }
 
 .inside-wrapper-1-4 {
-    background-color: rgb(255, 251, 0);
     border-radius: var(--border-radius-step-1);
 
     display: none; 
@@ -131,8 +129,8 @@ color: var(--color-white);
     
     border-radius: var(--border-radius-step-1); /* Memberi jarak atas/bawah dan menengahkan */
 
-    height: 500px;
-    max-height: 500px;
+    height: 400px;
+    max-height: 400px;
     overflow-y: auto; /* Memunculkan scroll vertikal jika perlu */
     
     /* Tambahan agar terlihat rapi */
@@ -495,6 +493,29 @@ select.dropdown-analisis:focus option:first-child {
 /* Class Helper untuk menyembunyikan elemen secara paksa */
 .is-hidden {
   display: none !important;
+}
+
+.container-sementara{
+  height: 100vh;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maintenance-website{
+  display: flex;
+  flex-direction: column;
+
+  height: 50%;
+  width: 50%;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
 }
 
 

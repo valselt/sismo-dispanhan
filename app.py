@@ -30,9 +30,9 @@ plt.style.use('seaborn-v0_8-whitegrid')
 # ==============================================================================
 def run_prophet_analysis(jenis_pangan, tingkat, tahun_awal, tahun_akhir, jumlah_hari_prediksi, model_pilihan):
     # 1. MEMUAT DATA DARI DATABASE
-    db_host = 'localhost'
-    db_user = 'root'
-    db_password = ''
+    db_host = 'db'
+    db_user = 'admin-dispanhan'
+    db_password = 'admin12345'
     db_name = 'db_dispanhan'
     engine = create_engine(f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}/{db_name}")
     

@@ -49,15 +49,10 @@ if ($action === 'get_data_for_ai') {
 if ($action === 'get_ai_summary') {
     // === BAGIAN YANG DIPERBARUI SESUAI "OLLAMA LIST" ANDA ===
     $modelMap = [
-        'phi-4-mini-reasoning' => 'phi4-mini-reasoning:3.8b',
-        'mistrallite' => 'mistrallite:7b',
         'nemotron-mini' => 'nemotron-mini:4b',
-        'granite-3-3' => 'granite3.3:2b',
         'gemma-3' => 'gemma3:4b',
-        'qwen-3' => 'qwen3:4b',
         'llama-3-2' => 'llama3.2:3b',
-        'deepseek-r1' => 'deepseek-r1:1.5b',
-        'gemma-3n' => 'gemma3n:e2b'
+        'deepseek-r1' => 'deepseek-r1:1.5b'
     ];
     // =======================================================
 
@@ -84,7 +79,7 @@ if ($action === 'get_ai_summary') {
         'stream' => false
     ]);
 
-    $ch = curl_init('http://localhost:11434/api/generate');
+    $ch = curl_init('http://ollama:11434/api/generate'); // Perubahan ini!
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $ollamaPayload);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
