@@ -81,7 +81,7 @@ Pastikan Semua Kontainer Telah Berjalan dengan Sempurna seperti pada Contoh Diba
 ![Docker Sudah Berjalan dengan Baik](https://i.postimg.cc/GmzMGBmR/docker-run-screenshot.png)
 
 
-1. Jalankan ini di browser untuk menjalankan index.html/Daashboard Utama
+1. Jalankan ini di browser untuk menjalankan index.html/Dashboard Utama
     ```bash
     http://localhost/
     ```
