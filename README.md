@@ -39,8 +39,9 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
 ## 🚀 Instalasi
 
 1.  **Download & Install Docker Desktop**  
-    [![Docker Dekstop](https://i.postimg.cc/vZmNGz0w/docker-download.png)](https://www.docker.com/products/docker-desktop/)
-
+    <a href="https://www.docker.com/products/docker-desktop/">
+      <img src="https://i.postimg.cc/vZmNGz0w/docker-download.png" alt="Docker Desktop" style="height: 40px;">
+    </a>
 2.  **Clone Repositori Ini**  
     Buka terminal (Git Bash, Command Prompt, atau PowerShell) dan jalankan perintah berikut:
     ```bash
