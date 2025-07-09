@@ -60,5 +60,23 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
     ```
     > **Catatan:** Saat pertama kali dijalankan, proses ini mungkin akan memakan waktu beberapa menit karena perlu mengunduh *image* Docker dan model LLM dari Ollama.
 
-5.  **Aplikasi Siap**  
-    Setelah semua container berjalan di Docker Desktop, buka browser dan akses aplikasi Anda (biasanya di `http://localhost/` atau sesuai konfigurasi `docker-compose.yml` Anda).
+## ⚡ Cara Menjalankan
+
+Pastikan Semua Kontainer Telah Berjalan dengan Sempurna seperti pada Contoh Dibawah Ini.
+
+![Docker Sudah Berjalan dengan Baik](https://i.postimg.cc/GmzMGBmR/docker-run-screenshot.png)
+
+1. Jalankan ini di browser untuk menjalankan index.html/Daashboard Utama
+    ```bash
+    http://localhost/
+    ```
+
+2. Jalankan ini di browser untuk menjalankan phpMyAdmin
+    ```bash
+    http://localhost:8080/
+    ```
+
+## 👤 Akun Admin
+
+**Username** : admin-dispanhan  
+**Password** : admin12345
