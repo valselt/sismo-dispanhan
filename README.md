@@ -15,7 +15,7 @@ Aplikasi Berbasis Website Untuk Melakukan Monitoring terhadap Kestabilan dan Sta
   <img src="https://img.shields.io/badge/ollama-%23000000?style=for-the-badge&logo=ollama&logoColor=white">
 </div>
 
-### ✨ Pratinjau Aplikasi
+## ✨ Pratinjau Aplikasi
 
 Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
 
@@ -48,9 +48,9 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
     git clone https://ALAMAT_URL_REPOSITORI_ANDA.git
     ```
 
-3.  **Masuk ke Direktori Proyek**  
+3.  **Masuk Ke Direktori anda melalui terminal dengan menggunakan `cd`**  
     ```bash
-    cd nama-direktori-hasil-clone
+    cd C:\{nama direktori anda}
     ```
 
 4.  **Jalankan Docker Compose**  
@@ -58,13 +58,28 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
     ```bash
     docker-compose up -d
     ```
-    > **Catatan:** Saat pertama kali dijalankan, proses ini mungkin akan memakan waktu beberapa menit karena perlu mengunduh *image* Docker dan model LLM dari Ollama.
+    > **Catatan:** Saat pertama kali dijalankan, proses ini mungkin akan memakan waktu beberapa menit karena perlu mengunduh *image* Docker dan model LLM dari Ollama.   
+    *Cek Docker Dekstop -> Container -> {nama direktori anda} -> ollama -> Logs, dan tunggu hingga selesai*.
 
 ## ⚡ Cara Menjalankan
 
-Pastikan Semua Kontainer Telah Berjalan dengan Sempurna seperti pada Contoh Dibawah Ini.
+### Docker  
+1. Buka Terminal
+2. Masuk Ke Direktori anda melalui terminal dengan menggunakan `cd` 
+3. Ketik Perintah ini ketika Ingin menjalankan Container Docker  
+    ```bash
+    docker-compose up -d
+    ```
+    Dan Ketika Ingin Stop Container Docker
 
+    ```bash
+    docker-compose down
+    ```
+
+### Website   
+Pastikan Semua Kontainer Telah Berjalan dengan Sempurna seperti pada Contoh Dibawah Ini.
 ![Docker Sudah Berjalan dengan Baik](https://i.postimg.cc/GmzMGBmR/docker-run-screenshot.png)
+
 
 1. Jalankan ini di browser untuk menjalankan index.html/Daashboard Utama
     ```bash
