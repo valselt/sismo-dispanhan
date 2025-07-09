@@ -23,7 +23,7 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
 *Gambar 1: Tampilan Halaman Dashboard SISMO-DISPANHAN.*
 
 ![Cloropeth Map Jawa Tengah](https://i.postimg.cc/26LBfVbf/tampilan2.png)
-*Gambar 2: Map Cloropeth menggunakan [Leaflet.js](https://leafletjs.com/) dan data GeoJSON Kabupaten/Kota di Indonesia.*
+*Gambar 2: Map Cloropeth menggunakan [Leaflet.js](https://leafletjs.com/) dan [data GeoJSON Kabupaten/Kota di Indonesia](https://github.com/eppofahmi/geojson-indonesia/blob/master/kota/all_kabkota_ind.geojson) .*
 
 ![Sistem Account Center](https://i.postimg.cc/Gtk8HVx7/tampilan3.png)
 *Gambar 3: Sistem Account Center.*
@@ -38,26 +38,26 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
 
 ## 🚀 Instalasi
 
-1.  **Download & Install Docker Desktop**
+1.  **Download & Install Docker Desktop**  
     [![Docker Dekstop](https://i.postimg.cc/vZmNGz0w/docker-download.png)](https://www.docker.com/products/docker-desktop/)
 
-2.  **Clone Repositori Ini**
+2.  **Clone Repositori Ini**  
     Buka terminal (Git Bash, Command Prompt, atau PowerShell) dan jalankan perintah berikut:
     ```bash
     git clone https://ALAMAT_URL_REPOSITORI_ANDA.git
     ```
 
-3.  **Masuk ke Direktori Proyek**
+3.  **Masuk ke Direktori Proyek**  
     ```bash
     cd nama-direktori-hasil-clone
     ```
 
-4.  **Jalankan Docker Compose**
+4.  **Jalankan Docker Compose**  
     Perintah ini akan membangun dan menjalankan semua layanan yang dibutuhkan secara otomatis.
     ```bash
     docker-compose up -d
     ```
     > **Catatan:** Saat pertama kali dijalankan, proses ini mungkin akan memakan waktu beberapa menit karena perlu mengunduh *image* Docker dan model LLM dari Ollama.
 
-5.  **Aplikasi Siap**
+5.  **Aplikasi Siap**  
     Setelah semua container berjalan di Docker Desktop, buka browser dan akses aplikasi Anda (biasanya di `http://localhost/` atau sesuai konfigurasi `docker-compose.yml` Anda).
