@@ -4,12 +4,6 @@
 
 <p>Aplikasi Berbasis Website Untuk Melakukan Monitoring terhadap Kestabilan dan Stabilisasi Pangan Di Jawa Tengah dengan mengimplementasikan Machine Learning ke Dalamnya.</p>
 
-<img src="https://i.postimg.cc/zDWRtHYC/tampilan1.png">
-<img src="https://i.postimg.cc/26LBfVbf/tampilan2.png">
-<img src="https://i.postimg.cc/Gtk8HVx7/tampilan3.png">
-<img src="https://i.postimg.cc/m2s10ZT0/tampilan4.png">
-<img src="https://i.postimg.cc/RhrJC4KJ/tampilan5.png">
-
 <div align="center">
   <img src="https://img.shields.io/badge/Docker-%232496ED?style=for-the-badge&logo=docker&logoColor=white">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
@@ -24,6 +18,30 @@
   <img src="https://img.shields.io/badge/ollama-%23000000?style=for-the-badge&logo=ollama&logoColor=white">
   
 </div>
+
+<p>Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN</p>
+<figure>
+  <img src="https://i.postimg.cc/zDWRtHYC/tampilan1.png" alt="Tampilan Dashboard Aplikasi SISMO-DISPANHAN">
+  <figcaption>Gambar 1: Tampilan Halaman Dashboard SISMO-DISPANHAN.</figcaption>
+</figure>
+<figure>
+  <img src="https://i.postimg.cc/26LBfVbf/tampilan2.png" alt="Cloropeth Map Jawa Tengah">
+  <figcaption>Gambar 2: Map Cloropeth menggunakan <a href="https://leafletjs.com/">Leaflet.js</a> dan <a href="https://github.com/eppofahmi/geojson-indonesia/blob/master/kota/all_kabkota_ind.geojson">/geojson Kabupaten/Kota Di Indonesia</a> .</figcaption>
+</figure>
+<figure>
+  <img src="https://i.postimg.cc/Gtk8HVx7/tampilan3.png" alt="Sistem Account Center">
+  <figcaption>Gambar 3: Sistem Account Center</figcaption>
+</figure>
+<figure>
+  <img src="https://i.postimg.cc/m2s10ZT0/tampilan4.png" alt="Tampilan Account Center">
+  <figcaption>Gambar 4: Tampilan Account Center</figcaption>
+</figure>
+<figure>
+  <img src="https://i.postimg.cc/RhrJC4KJ/tampilan5.png" alt="Sistem Analisa Harga">
+  <figcaption>Gambar 5: Analisa Harga dengan <a href="https://facebook.github.io/prophet/">Prophet</a></figcaption>
+</figure>
+
+
 
 <hr/>
 
