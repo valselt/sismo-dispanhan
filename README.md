@@ -21,23 +21,23 @@
 
 <p>Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN</p>
 <figure>
-  <img src="https://i.postimg.cc/zDWRtHYC/tampilan1.png" alt="Tampilan Dashboard Aplikasi SISMO-DISPANHAN">
+  <img src="https://i.postimg.cc/zDWRtHYC/tampilan1.png" alt="Tampilan Dashboard Aplikasi SISMO-DISPANHAN"/>
   <figcaption>Gambar 1: Tampilan Halaman Dashboard SISMO-DISPANHAN.</figcaption>
 </figure>
 <figure>
-  <img src="https://i.postimg.cc/26LBfVbf/tampilan2.png" alt="Cloropeth Map Jawa Tengah">
+  <img src="https://i.postimg.cc/26LBfVbf/tampilan2.png" alt="Cloropeth Map Jawa Tengah"/>
   <figcaption>Gambar 2: Map Cloropeth menggunakan <a href="https://leafletjs.com/">Leaflet.js</a> dan <a href="https://github.com/eppofahmi/geojson-indonesia/blob/master/kota/all_kabkota_ind.geojson">/geojson Kabupaten/Kota Di Indonesia</a> .</figcaption>
 </figure>
 <figure>
-  <img src="https://i.postimg.cc/Gtk8HVx7/tampilan3.png" alt="Sistem Account Center">
+  <img src="https://i.postimg.cc/Gtk8HVx7/tampilan3.png" alt="Sistem Account Center"/>
   <figcaption>Gambar 3: Sistem Account Center</figcaption>
 </figure>
 <figure>
-  <img src="https://i.postimg.cc/m2s10ZT0/tampilan4.png" alt="Tampilan Account Center">
+  <img src="https://i.postimg.cc/m2s10ZT0/tampilan4.png" alt="Tampilan Account Center"/>
   <figcaption>Gambar 4: Tampilan Account Center</figcaption>
 </figure>
 <figure>
-  <img src="https://i.postimg.cc/RhrJC4KJ/tampilan5.png" alt="Sistem Analisa Harga">
+  <img src="https://i.postimg.cc/RhrJC4KJ/tampilan5.png" alt="Sistem Analisa Harga"/>
   <figcaption>Gambar 5: Analisa Harga dengan <a href="https://facebook.github.io/prophet/">Prophet</a></figcaption>
 </figure>
 
@@ -46,7 +46,7 @@
 <hr/>
 
 <h2 style="vertical-align: middle;">
-  <span class="material-symbols-outlined" style="height: 1.5em; vertical-align: middle; margin-right: 8px;">downloading</span>
+  <img src="https://i.postimg.cc/5yZ1S74h/downloading.png"/>
   Installasi
 </h2>
 
