@@ -1,0 +1,5 @@
+# Atur perilaku default untuk semua file teks
+* text=auto
+
+# Paksa file skrip shell agar selalu menggunakan line ending LF (Unix)
+*.sh text eol=lf
