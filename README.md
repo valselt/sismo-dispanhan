@@ -45,7 +45,7 @@ Berikut adalah preview dari Aplikasi Web SISMO-DSIPANHAN.
 2.  **Clone Repositori Ini**  
     Buka terminal (Git Bash, Command Prompt, atau PowerShell) dan jalankan perintah berikut:
     ```bash
-    git clone https://ALAMAT_URL_REPOSITORI_ANDA.git
+    git clone https://github.com/valselt/sismo-dispanhan
     ```
 
 3.  **Masuk Ke Direktori anda melalui terminal dengan menggunakan `cd`**  
